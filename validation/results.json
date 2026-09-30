@@ -1,0 +1,107 @@
+{
+  "status_as_of": "2026-10-01",
+  "upstream_prs_merged": false,
+  "platform": "Linux CPU",
+  "runtime": {
+    "python": "3.12.14",
+    "jaxlib": "0.11.2",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "ml_dtypes": "0.6.0",
+    "opt_einsum": "3.4.0"
+  },
+  "educational_lab": {
+    "base_sha": "004eda6fcb36dd11d61ea9fa5fa2249a1810d604",
+    "local_verification": "Both scripts passed baseline expectations, then fixed expectations after applying both demonstration patches. A separate virtualenv reused the installed system dependencies.",
+    "log": "educational-local.log",
+    "commands": [
+      "python examples/keyword_forwarding.py --expect baseline",
+      "python examples/uneven_collectives.py --expect baseline",
+      "git -C .lab/jax apply ../../patches/keyword-forwarding.patch",
+      "git -C .lab/jax apply ../../patches/uneven-collectives.patch",
+      "python examples/keyword_forwarding.py --expect fixed",
+      "python examples/uneven_collectives.py --expect fixed"
+    ]
+  },
+  "contributions": [
+    {
+      "issue": 41121,
+      "pr": "https://github.com/jax-ml/jax/pull/41156",
+      "base_sha": "3b32c93e50b3bdc3df192f0a84a414ea67a905ee",
+      "submitted_sha": "ee1098c023ddd40171d24fa87d3273036a0ed707",
+      "new_regressions": {
+        "before_failed": 12,
+        "existing_passed_before": 1,
+        "after_passed_with_existing": 13
+      },
+      "complete_test_file": {
+        "32": {
+          "passed": 980,
+          "skipped": 36
+        },
+        "64": {
+          "passed": 983,
+          "skipped": 37
+        }
+      },
+      "precommit_all_files": "passed",
+      "source_sha256": {
+        "jax/_src/api.py": "657bc4fae108650f961c07fdccb161984269891a63d4dc2643dcc5533aad4710",
+        "tests/api_test.py": "612e7870e838d502c27a56085487a818f689a9518978551daa03edb5fe0025ae"
+      },
+      "test_logs": [
+        "api32.log",
+        "api64.log"
+      ],
+      "commands": [
+        "JAX_ENABLE_X64=false python -m pytest -n 2 tests/api_test.py",
+        "JAX_ENABLE_X64=true python -m pytest -n 2 tests/api_test.py",
+        "pre-commit run --all-files --show-diff-on-failure"
+      ]
+    },
+    {
+      "issue": 41132,
+      "pr": "https://github.com/jax-ml/jax/pull/41157",
+      "base_sha": "004eda6fcb36dd11d61ea9fa5fa2249a1810d604",
+      "submitted_sha": "8893cc0e2572f7210abe1af4e4af64990f5b6d0d",
+      "new_regressions": {
+        "before": {
+          "passed": 2,
+          "failed": 14,
+          "skipped": 0
+        },
+        "after": {
+          "passed": 16,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      "complete_test_file": {
+        "32": {
+          "passed": 289,
+          "failed": 0,
+          "skipped": 31
+        },
+        "64": {
+          "passed": 289,
+          "failed": 0,
+          "skipped": 31
+        }
+      },
+      "precommit_all_files": "passed",
+      "source_sha256": {
+        "jax/_src/lax/parallel.py": "51dfa841d9d01eecea48be2694739398032a0e380c7516c7837398d221eb3e46",
+        "tests/pmap_test.py": "f8d43b911871f0053540c9a03003d86da0f3d9847f0f1a2b585c79e5595c6add"
+      },
+      "test_logs": [
+        "pmap32.log",
+        "pmap64.log"
+      ],
+      "commands": [
+        "JAX_ENABLE_X64=false XLA_FLAGS=--xla_force_host_platform_device_count=8 python -m pytest -n 2 tests/pmap_test.py",
+        "JAX_ENABLE_X64=true XLA_FLAGS=--xla_force_host_platform_device_count=8 python -m pytest -n 2 tests/pmap_test.py",
+        "pre-commit run --all-files --show-diff-on-failure"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+name: Reproduce JAX cases
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  before-and-after:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Install pinned upstream baseline
+        run: |
+          git clone --filter=blob:none https://github.com/jax-ml/jax.git .lab/jax
+          git -C .lab/jax checkout 004eda6fcb36dd11d61ea9fa5fa2249a1810d604
+          python -m pip install -r requirements-demo.txt -e .lab/jax
+      - name: Verify both baseline bugs
+        run: |
+          python examples/keyword_forwarding.py --expect baseline
+          python examples/uneven_collectives.py --expect baseline
+      - name: Apply submitted fixes
+        run: |
+          git -C .lab/jax apply ../../patches/keyword-forwarding.patch
+          git -C .lab/jax apply ../../patches/uneven-collectives.patch
+      - name: Verify both fixed examples
+        run: |
+          python examples/keyword_forwarding.py --expect fixed
+          python examples/uneven_collectives.py --expect fixed

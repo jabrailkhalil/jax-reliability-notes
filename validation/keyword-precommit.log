@@ -1,0 +1,37 @@
+[INFO] Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Initializing environment for https://github.com/astral-sh/ruff-pre-commit.
+[INFO] Initializing environment for https://github.com/facebook/pyrefly-pre-commit.
+[INFO] Initializing environment for https://github.com/facebook/pyrefly-pre-commit:absl-py==2.4.0,types-requests~=2.32.0,numpy~=2.4.0,ml_dtypes~=0.5.0,opt-einsum~=3.4.0,tensorstore,scipy-stubs,--pre,--extra-index-url,https://us-python.pkg.dev/ml-oss-artifacts-published/jax/simple/,jaxlib.
+[INFO] Initializing environment for https://github.com/mwouts/jupytext.
+[INFO] Initializing environment for local:google-re2.
+[INFO] Initializing environment for https://github.com/rhysd/actionlint.
+[INFO] Installing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/astral-sh/ruff-pre-commit.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/facebook/pyrefly-pre-commit.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/mwouts/jupytext.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for local.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/rhysd/actionlint.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+check python ast.........................................................Passed
+check for merge conflicts................................................Passed
+check toml...............................................................Passed
+check yaml...............................................................Passed
+fix end of files.........................................................Passed
+debug statements (python)................................................Passed
+trim trailing whitespace.................................................Passed
+ruff (legacy alias)......................................................Passed
+Pyrefly (type checking)..................................................Passed
+jupytext.................................................................Passed
+check copyright notice...................................................Passed
+Lint GitHub Actions workflow files.......................................Passed

@@ -1,0 +1,10 @@
+JAX reliability notes
+Copyright 2026 Jabrail Khalil
+
+This repository contains patch context derived from JAX:
+https://github.com/jax-ml/jax
+Copyright The JAX Authors.
+JAX is licensed under the Apache License, Version 2.0.
+
+This repository is an independent educational contribution and is not an
+official JAX project publication.
