@@ -72,6 +72,10 @@ Both submitted contributions passed JAX's complete `pre-commit run --all-files` 
 
 The [10-minute session outline](talk-outline.md) turns these investigations into a practical walkthrough of testing numerical APIs. It is prepared material; no meetup delivery or audience impact is claimed here.
 
+## Generalized eigenproblems in ML
+
+In [my Russian-language Fisher LDA article](articles/generalized-eigh-lda-ru.md), I use the generalized `eigh` API to build a differentiable dimensionality-reduction example. I compare it with independent SciPy calculations, check `jit` and `vmap`, and verify gradients with finite differences. I include runnable code, measured CPU results, and a plot comparing PCA with regularized LDA on synthetic data. I have prepared the material for a lesson or workshop; I have not delivered it to an audience.
+
 ## License
 
 The educational material and examples are licensed under Apache-2.0. The patch excerpts modify JAX, which is also licensed under Apache-2.0; their upstream context remains copyright The JAX Authors. See [LICENSE](LICENSE) and [NOTICE](NOTICE).

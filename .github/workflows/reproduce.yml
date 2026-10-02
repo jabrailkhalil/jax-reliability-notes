@@ -46,8 +46,12 @@ jobs:
         run: |
           git clone --filter=blob:none https://github.com/jax-ml/jax.git .lab/generalized-jax
           git -C .lab/generalized-jax checkout 15998e8040d07995ac5dcc4643333e1b88e8c047
-          python -m pip install -r requirements-generalized-eigh.txt .lab/generalized-jax
+          python -m pip install -r requirements-lda.txt .lab/generalized-jax
       - name: Check SciPy references, identities, JIT, vmap and gradients
         run: |
           python examples/generalized_eigh.py
           python examples/generalized_eigh.py --x64
+      - name: Check Fisher LDA, batched ridge values, gradients and plot generation
+        run: |
+          python examples/differentiable_lda.py
+          python examples/differentiable_lda.py --x64 --plot-dir .lab/lda-plot
