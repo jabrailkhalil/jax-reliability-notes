@@ -1,0 +1,195 @@
+{
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "jax": "0.12.0.dev20261002+15998e8",
+  "jaxlib": "0.11.2",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "devices": [
+    "cpu:0"
+  ],
+  "x64": true,
+  "checked_cases": 12,
+  "cases": [
+    {
+      "dtype": "float32",
+      "problem_type": 1,
+      "relative_defining_residual": 2.505470058346258e-07,
+      "normalization_error": 8.783022401004381e-07,
+      "gradient": [
+        0.4291389584541321,
+        -1.2297813892364502
+      ],
+      "scipy_finite_difference": [
+        0.4291390118926763,
+        -1.22978123607842
+      ],
+      "gradient_max_absolute_error": 1.5315803025828245e-07
+    },
+    {
+      "dtype": "float32",
+      "problem_type": 2,
+      "relative_defining_residual": 1.4617634905447956e-07,
+      "normalization_error": 3.2067696850695525e-07,
+      "gradient": [
+        0.5081750750541687,
+        2.7092161178588867
+      ],
+      "scipy_finite_difference": [
+        0.508175278124412,
+        2.7092162692810007
+      ],
+      "gradient_max_absolute_error": 2.0307024328758416e-07
+    },
+    {
+      "dtype": "float32",
+      "problem_type": 3,
+      "relative_defining_residual": 1.1263161757879564e-07,
+      "normalization_error": 3.9049837367016176e-07,
+      "gradient": [
+        0.5081750750541687,
+        2.7092161178588867
+      ],
+      "scipy_finite_difference": [
+        0.508175278124412,
+        2.7092162692810007
+      ],
+      "gradient_max_absolute_error": 2.0307024328758416e-07
+    },
+    {
+      "dtype": "complex64",
+      "problem_type": 1,
+      "relative_defining_residual": 1.6775780690068504e-07,
+      "normalization_error": 5.027981500176939e-07,
+      "gradient": [
+        0.5747238397598267,
+        -0.9984573721885681
+      ],
+      "scipy_finite_difference": [
+        0.5747237346032108,
+        -0.9984574331212136
+      ],
+      "gradient_max_absolute_error": 1.0515661585941416e-07
+    },
+    {
+      "dtype": "complex64",
+      "problem_type": 2,
+      "relative_defining_residual": 1.4998381366556907e-07,
+      "normalization_error": 6.178373740676874e-07,
+      "gradient": [
+        0.5541062951087952,
+        2.607729911804199
+      ],
+      "scipy_finite_difference": [
+        0.5541065695169323,
+        2.6077299382976094
+      ],
+      "gradient_max_absolute_error": 2.744081371020002e-07
+    },
+    {
+      "dtype": "complex64",
+      "problem_type": 3,
+      "relative_defining_residual": 1.7558155715324483e-07,
+      "normalization_error": 6.73133329337942e-07,
+      "gradient": [
+        0.5541062951087952,
+        2.607729911804199
+      ],
+      "scipy_finite_difference": [
+        0.5541065695169323,
+        2.6077299382976094
+      ],
+      "gradient_max_absolute_error": 2.744081371020002e-07
+    },
+    {
+      "dtype": "float64",
+      "problem_type": 1,
+      "relative_defining_residual": 3.614613980116503e-16,
+      "normalization_error": 1.1151906015008881e-15,
+      "gradient": [
+        0.4291390150180121,
+        -1.229781185104784
+      ],
+      "scipy_finite_difference": [
+        0.4291390149901985,
+        -1.2297811851080809
+      ],
+      "gradient_max_absolute_error": 2.7813584768665578e-11
+    },
+    {
+      "dtype": "float64",
+      "problem_type": 2,
+      "relative_defining_residual": 3.753130496902399e-16,
+      "normalization_error": 1.6514520913942502e-15,
+      "gradient": [
+        0.5081752197234282,
+        2.7092162291204427
+      ],
+      "scipy_finite_difference": [
+        0.508175219682272,
+        2.7092162294017896
+      ],
+      "gradient_max_absolute_error": 2.813469457407791e-10
+    },
+    {
+      "dtype": "float64",
+      "problem_type": 3,
+      "relative_defining_residual": 2.964300814712609e-16,
+      "normalization_error": 1.7524116284952312e-15,
+      "gradient": [
+        0.5081752197234282,
+        2.7092162291204427
+      ],
+      "scipy_finite_difference": [
+        0.508175219682272,
+        2.7092162294017896
+      ],
+      "gradient_max_absolute_error": 2.813469457407791e-10
+    },
+    {
+      "dtype": "complex128",
+      "problem_type": 1,
+      "relative_defining_residual": 5.248163389079501e-16,
+      "normalization_error": 1.135479179319923e-15,
+      "gradient": [
+        0.5747237660087173,
+        -0.998457442126521
+      ],
+      "scipy_finite_difference": [
+        0.5747237660447269,
+        -0.9984574421917357
+      ],
+      "gradient_max_absolute_error": 6.521472251108662e-11
+    },
+    {
+      "dtype": "complex128",
+      "problem_type": 2,
+      "relative_defining_residual": 2.485713900831681e-16,
+      "normalization_error": 1.9134385255502254e-15,
+      "gradient": [
+        0.5541064970532723,
+        2.6077299474320443
+      ],
+      "scipy_finite_difference": [
+        0.5541064971303911,
+        2.607729947445847
+      ],
+      "gradient_max_absolute_error": 7.711875582572247e-11
+    },
+    {
+      "dtype": "complex128",
+      "problem_type": 3,
+      "relative_defining_residual": 2.71763461922895e-16,
+      "normalization_error": 1.6906001709557622e-15,
+      "gradient": [
+        0.5541064970532723,
+        2.6077299474320443
+      ],
+      "scipy_finite_difference": [
+        0.5541064971303911,
+        2.607729947445847
+      ],
+      "gradient_max_absolute_error": 7.711875582572247e-11
+    }
+  ]
+}

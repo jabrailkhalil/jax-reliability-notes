@@ -33,3 +33,21 @@ jobs:
         run: |
           python examples/keyword_forwarding.py --expect fixed
           python examples/uneven_collectives.py --expect fixed
+
+  generalized-eigh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Install source with generalized eigenproblems
+        run: |
+          git clone --filter=blob:none https://github.com/jax-ml/jax.git .lab/generalized-jax
+          git -C .lab/generalized-jax checkout 15998e8040d07995ac5dcc4643333e1b88e8c047
+          python -m pip install -r requirements-generalized-eigh.txt .lab/generalized-jax
+      - name: Check SciPy references, identities, JIT, vmap and gradients
+        run: |
+          python examples/generalized_eigh.py
+          python examples/generalized_eigh.py --x64

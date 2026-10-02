@@ -10,8 +10,9 @@ I follow a small loop: calculate an independent expected result, reproduce the b
 | --- | --- | --- |
 | [Keyword forwarding](case-studies/keyword-forwarding.md) | A supplied loss coefficient is ignored; both the value and gradient are wrong. | [JAX #41156](https://github.com/jax-ml/jax/pull/41156) |
 | [Uneven collective groups](case-studies/uneven-collectives.md) | A group mean uses another group's size; constant sums and gradients are also wrong. | [JAX #41157](https://github.com/jax-ml/jax/pull/41157) |
+| [Generalized Hermitian eigenproblems](case-studies/generalized-eigh.md) | A missing numerical API needs correct eigenvector transforms, normalization, and derivatives. | [JAX #41162](https://github.com/jax-ml/jax/pull/41162), [#41197](https://github.com/jax-ml/jax/pull/41197) |
 
-Both pull requests are **open for upstream review**, as of 1 October 2026. The patches in this repository are demonstration copies of the submitted changes; they are not an upstream release. I tested these cases on Linux CPU, not GPU or TPU.
+As of 2 October 2026, keyword forwarding and both generalized-eigh contributions are **merged**; the uneven-groups fix is **open for upstream review**. The patch copies below demonstrate the original before/after investigations. Their checks used Linux CPU. The new generalized-eigh lab uses a later source revision and was checked on Windows CPU. No accelerator execution is claimed for these labs.
 
 ## Run the before/after examples
 
