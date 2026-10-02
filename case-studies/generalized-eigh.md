@@ -46,6 +46,8 @@ python examples/generalized_eigh.py --x64
 
 The program exits on a failed assertion and otherwise prints the runtime versions, devices, residuals and gradient comparisons as JSON. The default run covers six dtype/problem-type combinations; `--x64` covers twelve. I ran both on Windows CPU with Python 3.12.10 and jaxlib 0.11.2. Measured outputs are in [validation/generalized-eigh-x32.json](../validation/generalized-eigh-x32.json) and [validation/generalized-eigh-x64.json](../validation/generalized-eigh-x64.json).
 
+The same six/twelve-case runs also passed in [Linux CPU CI](https://github.com/jabrailkhalil/jax-reliability-notes/actions/runs/37032767112), with Python 3.12.14. That run also passed the existing keyword-forwarding and uneven-group before/after examples.
+
 ## A 45-minute exercise
 
 1. Derive the type-1 Cholesky reduction and explain why B must be positive definite (10 minutes).
