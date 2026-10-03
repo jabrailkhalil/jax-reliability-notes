@@ -31,7 +31,7 @@ Prepared 10-minute technical session by Jabrail Khalil. Both examples use CPU; n
 ## 8:00–10:00 — Review and limitations
 
 - Show the upstream regression-test changes and CPU evidence.
-- State that the submitted PRs are awaiting review; a local passing suite is not a merge.
+- State the verified status as of 3 October 2026: keyword forwarding is merged; the uneven-groups PR is open for review and upstream CI approval. A local passing suite is not a merge or an accelerator pass.
 - Explain that GPU/TPU CI and the earlier collective revert need upstream review.
 - Leave the audience with the pinned examples and their own independent reference calculation.
 

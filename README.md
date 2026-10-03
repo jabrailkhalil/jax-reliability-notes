@@ -76,6 +76,8 @@ The [10-minute session outline](talk-outline.md) turns these investigations into
 
 In [my Russian-language Fisher LDA article](articles/generalized-eigh-lda-ru.md), I use the generalized `eigh` API to build a differentiable dimensionality-reduction example. I compare it with independent SciPy calculations, check `jit` and `vmap`, and verify gradients with finite differences. I include runnable code, measured CPU results, and a plot comparing PCA with regularized LDA on synthetic data. I have prepared the material for a lesson or workshop; I have not delivered it to an audience.
 
+The [English article](articles/generalized-eigh-lda.md) and 45-minute hands-on worksheet ([English](workshops/fisher-lda.md) / [Русский](workshops/fisher-lda-ru.md)) make the lab available for self-study and future community sessions. Both example modes were rerun successfully on Windows CPU on 3 October 2026. The worksheet includes independent-reference exercises and explicitly separates tested numerical behavior from unmeasured model quality or audience impact.
+
 ## License
 
 The educational material and examples are licensed under Apache-2.0. The patch excerpts modify JAX, which is also licensed under Apache-2.0; their upstream context remains copyright The JAX Authors. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
