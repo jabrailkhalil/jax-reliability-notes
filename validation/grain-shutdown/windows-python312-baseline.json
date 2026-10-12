@@ -19,11 +19,11 @@
     },
     "siblings_after_ValueError": {
       "passed": false,
-      "error": "AssertionError('Lists differ: [1, 0] != [1, 1]\\n\\nFirst differing element 1:\\n0\\n1\\n\\n- [1, 0]\\n?     ^\\n\\n+ [1, 1]\\n?     ^\\n')"
+      "error": "AssertionError('False is not true : Sibling cleanup never started')"
     },
     "siblings_after_RuntimeError": {
       "passed": false,
-      "error": "AssertionError('Lists differ: [1, 0] != [1, 1]\\n\\nFirst differing element 1:\\n0\\n1\\n\\n- [1, 0]\\n?     ^\\n\\n+ [1, 1]\\n?     ^\\n')"
+      "error": "AssertionError('False is not true : Sibling cleanup never started')"
     },
     "empty": {
       "passed": true

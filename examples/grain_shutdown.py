@@ -152,14 +152,47 @@ def run_checks(close, source, mode):
 
     def siblings_after_error(error_type):
         problem = error_type("deliberate child close failure")
+        entered = futures.Future()
+        returned = futures.Future()
+        release = threading.Event()
+        finished = threading.Event()
 
         def fail():
             raise problem
 
-        children = [Child(fail), Child()]
+        def slow_cleanup():
+            entered.set_result(None)
+            if not release.wait(timeout=5):
+                raise TimeoutError("The test did not release sibling cleanup")
+            finished.set()
+
+        children = [Child(fail), Child(slow_cleanup)]
         obj = fixture(close, children)
+
+        def call_close():
+            try:
+                obj.close()
+            except (ValueError, RuntimeError, TimeoutError) as error:
+                returned.set_exception(error)
+            else:
+                returned.set_result(None)
+
+        caller = threading.Thread(target=call_close, daemon=False)
+        caller.start()
+        try:
+            # No timing threshold: observe whichever protocol event occurs first.
+            futures.wait(
+                [entered, returned], timeout=5, return_when=futures.FIRST_COMPLETED
+            )
+            check.assertTrue(entered.done(), "Sibling cleanup never started")
+            check.assertFalse(returned.done(), "close returned before sibling release")
+        finally:
+            release.set()
+            caller.join(timeout=10)
+        check.assertFalse(caller.is_alive())
+        check.assertTrue(finished.is_set())
         with check.assertRaises(error_type) as raised:
-            obj.close()
+            returned.result(timeout=5)
         check.assertIs(raised.exception, problem)
         check.assertEqual([child.calls for child in children], [1, 1])
         obj.close()
