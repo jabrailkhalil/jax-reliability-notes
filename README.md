@@ -13,6 +13,7 @@ I follow a small loop: calculate an independent expected result, reproduce the b
 | [Generalized Hermitian eigenproblems](case-studies/generalized-eigh.md) | A missing numerical API needs correct eigenvector transforms, normalization, and derivatives. | [JAX #41162](https://github.com/jax-ml/jax/pull/41162), [#41197](https://github.com/jax-ml/jax/pull/41197) |
 | [Finite meta-gradients through clipping](articles/clipping-meta-gradients-ru.md) (Русский) | Zero updates have correct forward values but NaN reverse derivatives through a short optimizer loop. | [Optax #1815](https://github.com/google-deepmind/optax/pull/1815), open as of 12 October 2026 |
 | [Concurrent Grain worker shutdown](articles/grain-shutdown-ru.md) (Русский) | Sequential child cleanup accumulates exit delays; parallel cleanup must preserve completion, error handling, and interpreter finalization. | [Grain #1430](https://github.com/google/grain/pull/1430), open as of 12 October 2026 |
+| [Lazy import scope isolation](articles/etils-import-scopes-ru.md) (Русский) | A process-global import hook intercepts unrelated threads and GC finalizers and can leak named semaphores. | [etils #839](https://github.com/google/etils/pull/839), open as of 12 October 2026 |
 
 As of 2 October 2026, keyword forwarding and both generalized-eigh contributions are **merged**; the uneven-groups fix is **open for upstream review**. The patch copies below demonstrate the original before/after investigations. Their checks used Linux CPU. The new generalized-eigh lab uses a later source revision and was checked on Windows CPU. No accelerator execution is claimed for these labs.
 
@@ -78,6 +79,8 @@ The [10-minute session outline](talk-outline.md) turns these investigations into
 
 The [Russian Grain shutdown lab](articles/grain-shutdown-ru.md) checks the actual `close()` method from pinned baseline and proposed-fix Git blobs without installing Grain's native dependencies. It reproduces exactly five baseline failures, requires twelve fixed checks to pass, and exercises real interpreter final GC separately from `atexit`. The fixtures isolate the cleanup protocol; native integration matrices and a controlled real-worker measurement are linked separately. This is self-study material, not a delivered workshop or a claim that the open PR is released.
 
+The related [etils import-scope lab](articles/etils-import-scopes-ru.md) uses the real installed package from exact revisions. It checks unrelated thread imports, GC finalizers, non-LIFO restoration, and native Linux named-semaphore cleanup. It credits mahdi-shafiei's original reproductions and proposed direction; the fix remains open for review.
+
 ## Generalized eigenproblems in ML
 
 In [my Russian-language Fisher LDA article](articles/generalized-eigh-lda-ru.md), I use the generalized `eigh` API to build a differentiable dimensionality-reduction example. I compare it with independent SciPy calculations, check `jit` and `vmap`, and verify gradients with finite differences. I include runnable code, measured CPU results, and a plot comparing PCA with regularized LDA on synthetic data. I have prepared the material for a lesson or workshop; I have not delivered it to an audience.
@@ -86,4 +89,4 @@ The [English article](articles/generalized-eigh-lda.md) and 45-minute hands-on w
 
 ## License
 
-The educational material and examples are licensed under Apache-2.0. The patch excerpts modify JAX, which is also licensed under Apache-2.0; their upstream context remains copyright The JAX Authors. The clipping lab adapts Optax expressions, copyright DeepMind Technologies Limited, also under Apache-2.0. The shutdown lab loads pinned Grain source, copyright Google LLC, under the same license. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+The educational material and examples are licensed under Apache-2.0. The patch excerpts modify JAX, which is also licensed under Apache-2.0; their upstream context remains copyright The JAX Authors. The clipping lab adapts Optax expressions, copyright DeepMind Technologies Limited, also under Apache-2.0. The shutdown lab loads pinned Grain source, copyright Google LLC, under the same license. The import-scope lab uses pinned etils, copyright The etils Authors, also under Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).

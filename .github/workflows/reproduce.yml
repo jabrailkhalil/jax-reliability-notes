@@ -99,3 +99,40 @@ jobs:
         run: python examples/grain_shutdown.py --source .lab/grain --expect baseline
       - name: Verify all twelve fixed cases including real final GC
         run: python examples/grain_shutdown.py --source .lab/grain --expect fixed
+
+  etils-import-scopes:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.11'
+          - os: macos-latest
+            python: '3.12'
+          - os: windows-latest
+            python: '3.13'
+          - os: ubuntu-latest
+            python: '3.14'
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install exact baseline package without line-ending conversion
+        shell: bash
+        run: |
+          git -c core.autocrlf=false clone --filter=blob:none https://github.com/google/etils.git .lab/etils
+          git -C .lab/etils -c core.autocrlf=false checkout d18f006162a8da2b7eb79de2e1e1cac0d07774c5
+          python -m pip install ".lab/etils[epy]"
+      - name: Require exact baseline observations and native resource cleanup
+        run: python examples/etils_import_scopes.py --expect baseline
+      - name: Install exact proposed fix
+        shell: bash
+        run: |
+          git -C .lab/etils fetch https://github.com/jabrailkhalil/etils.git 7875132c8a7567ad71035704081d1c9a210353fc
+          git -C .lab/etils -c core.autocrlf=false checkout 7875132c8a7567ad71035704081d1c9a210353fc
+          python -m pip install --force-reinstall --no-deps .lab/etils
+      - name: Require every fixed observation
+        run: python examples/etils_import_scopes.py --expect fixed

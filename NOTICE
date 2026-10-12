@@ -17,5 +17,13 @@ https://github.com/google/grain
 Copyright 2024 Google LLC.
 Grain is licensed under the Apache License, Version 2.0.
 
+The import-scope lab uses pinned etils source:
+https://github.com/google/etils
+Copyright 2026 The etils Authors.
+etils is licensed under the Apache License, Version 2.0.
+The original thread/finalizer/overlapping-scope reproductions and proposed
+caller-scoping/shared-registry direction were supplied by mahdi-shafiei:
+https://github.com/google/etils/issues/838
+
 This repository is an independent educational contribution and is not an
-official JAX, Optax, or Grain project publication.
+official JAX, Optax, Grain, or etils project publication.
