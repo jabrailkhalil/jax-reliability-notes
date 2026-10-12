@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-12",
+  "purpose": "Controlled worker-exit latency, not data throughput",
+  "python": "CPython 3.12.10",
+  "platform": "Windows AMD64",
+  "worker_atexit_delay_seconds": 0.3,
+  "repetitions_per_configuration": 3,
+  "local_native_dependency": "Published Grain 0.2.18 index_shuffle extension; Python lifecycle code loaded from the indicated source revisions. Full native source build/test evidence is linked in the article separately.",
+  "baseline": {
+    "revision": "7e36b7231574d0f9ab106f903a8d832f58157594",
+    "measurements": [
+      {"workers": 2, "close_seconds": [0.8887157000008301, 0.8972749999993539, 0.8994937999996182], "median_close_seconds": 0.8972749999993539, "distinct_worker_pid_counts": [2, 2, 2], "live_workers_after_close_counts": [0, 0, 0]},
+      {"workers": 4, "close_seconds": [1.760358499999711, 1.8222187999999733, 1.7958168999994086], "median_close_seconds": 1.7958168999994086, "distinct_worker_pid_counts": [4, 4, 4], "live_workers_after_close_counts": [0, 0, 0]},
+      {"workers": 8, "close_seconds": [3.4970205999998143, 3.531764999999723, 3.6397850000012113], "median_close_seconds": 3.531764999999723, "distinct_worker_pid_counts": [8, 8, 8], "live_workers_after_close_counts": [0, 0, 0]}
+    ]
+  },
+  "fixed": {
+    "revision": "b24133c928899e86b649d624bea32c3e494483e4",
+    "measurements": [
+      {"workers": 2, "close_seconds": [0.4454846999997244, 0.452375499999107, 0.46096380000017234], "median_close_seconds": 0.452375499999107, "distinct_worker_pid_counts": [2, 2, 2], "live_workers_after_close_counts": [0, 0, 0]},
+      {"workers": 4, "close_seconds": [0.490105400000175, 0.4964103000002069, 0.502700900000491], "median_close_seconds": 0.4964103000002069, "distinct_worker_pid_counts": [4, 4, 4], "live_workers_after_close_counts": [0, 0, 0]},
+      {"workers": 8, "close_seconds": [0.5551919000008638, 0.5623394999984157, 0.5622409000006883], "median_close_seconds": 0.5622409000006883, "distinct_worker_pid_counts": [8, 8, 8], "live_workers_after_close_counts": [0, 0, 0]}
+    ]
+  }
+}

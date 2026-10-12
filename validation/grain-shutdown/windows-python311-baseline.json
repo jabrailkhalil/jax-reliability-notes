@@ -1,0 +1,65 @@
+{
+  "python": "3.11.17 (main, Oct  1 2026, 20:58:35) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "win32",
+  "revision": "7e36b7231574d0f9ab106f903a8d832f58157594",
+  "source_sha256": "af48b7e02246b2eef3fbfb18cc39c957b235d48b8a21ef0fc3b924a305d0e0d2",
+  "expect": "baseline",
+  "cases": {
+    "overlap_2": {
+      "passed": false,
+      "error": "BrokenBarrierError()"
+    },
+    "overlap_4": {
+      "passed": false,
+      "error": "BrokenBarrierError()"
+    },
+    "overlap_8": {
+      "passed": false,
+      "error": "BrokenBarrierError()"
+    },
+    "siblings_after_ValueError": {
+      "passed": false,
+      "error": "AssertionError('Lists differ: [1, 0] != [1, 1]\\n\\nFirst differing element 1:\\n0\\n1\\n\\n- [1, 0]\\n?     ^\\n\\n+ [1, 1]\\n?     ^\\n')"
+    },
+    "siblings_after_RuntimeError": {
+      "passed": false,
+      "error": "AssertionError('Lists differ: [1, 0] != [1, 1]\\n\\nFirst differing element 1:\\n0\\n1\\n\\n- [1, 0]\\n?     ^\\n\\n+ [1, 1]\\n?     ^\\n')"
+    },
+    "empty": {
+      "passed": true
+    },
+    "uninitialized": {
+      "passed": true
+    },
+    "partial_single_child": {
+      "passed": true
+    },
+    "unavailable_threads": {
+      "passed": true
+    },
+    "finalizing_no_threads": {
+      "passed": true
+    },
+    "atexit": {
+      "passed": true
+    },
+    "final-gc": {
+      "passed": true
+    }
+  },
+  "failed": [
+    "overlap_2",
+    "overlap_4",
+    "overlap_8",
+    "siblings_after_RuntimeError",
+    "siblings_after_ValueError"
+  ],
+  "expected_failures": [
+    "overlap_2",
+    "overlap_4",
+    "overlap_8",
+    "siblings_after_RuntimeError",
+    "siblings_after_ValueError"
+  ],
+  "matched_expectation": true
+}

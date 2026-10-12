@@ -12,5 +12,10 @@ https://github.com/google-deepmind/optax
 Copyright 2019 DeepMind Technologies Limited. All Rights Reserved.
 Optax is licensed under the Apache License, Version 2.0.
 
+The shutdown lab in examples/grain_shutdown.py loads source from Grain:
+https://github.com/google/grain
+Copyright 2024 Google LLC.
+Grain is licensed under the Apache License, Version 2.0.
+
 This repository is an independent educational contribution and is not an
-official JAX or Optax project publication.
+official JAX, Optax, or Grain project publication.

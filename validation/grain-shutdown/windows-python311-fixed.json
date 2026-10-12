@@ -1,0 +1,48 @@
+{
+  "python": "3.11.17 (main, Oct  1 2026, 20:58:35) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "win32",
+  "revision": "b24133c928899e86b649d624bea32c3e494483e4",
+  "source_sha256": "7fbb97a37ebb0c63d79c63c5093b5eef523c25cd34fd566a2abd14543b03285c",
+  "expect": "fixed",
+  "cases": {
+    "overlap_2": {
+      "passed": true
+    },
+    "overlap_4": {
+      "passed": true
+    },
+    "overlap_8": {
+      "passed": true
+    },
+    "siblings_after_ValueError": {
+      "passed": true
+    },
+    "siblings_after_RuntimeError": {
+      "passed": true
+    },
+    "empty": {
+      "passed": true
+    },
+    "uninitialized": {
+      "passed": true
+    },
+    "partial_single_child": {
+      "passed": true
+    },
+    "unavailable_threads": {
+      "passed": true
+    },
+    "finalizing_no_threads": {
+      "passed": true
+    },
+    "atexit": {
+      "passed": true
+    },
+    "final-gc": {
+      "passed": true
+    }
+  },
+  "failed": [],
+  "expected_failures": [],
+  "matched_expectation": true
+}

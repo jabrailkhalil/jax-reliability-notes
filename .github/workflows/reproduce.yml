@@ -68,3 +68,34 @@ jobs:
         run: python -m pip install -r requirements-clipping.txt
       - name: Check baseline failures and analytic fixed gradients
         run: python examples/clipping_meta_gradients.py
+
+  grain-shutdown:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.11'
+          - os: macos-latest
+            python: '3.12'
+          - os: windows-latest
+            python: '3.13'
+          - os: ubuntu-latest
+            python: '3.14'
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Fetch immutable Grain source revisions
+        shell: bash
+        run: |
+          git init .lab/grain
+          git -C .lab/grain fetch --depth=1 https://github.com/google/grain.git 7e36b7231574d0f9ab106f903a8d832f58157594
+          git -C .lab/grain fetch --depth=1 https://github.com/jabrailkhalil/grain.git b24133c928899e86b649d624bea32c3e494483e4
+      - name: Verify the five baseline failures and seven controls
+        run: python examples/grain_shutdown.py --source .lab/grain --expect baseline
+      - name: Verify all twelve fixed cases including real final GC
+        run: python examples/grain_shutdown.py --source .lab/grain --expect fixed
