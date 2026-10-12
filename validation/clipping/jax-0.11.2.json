@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-10-12T14:07:44.334568+00:00",
+  "command": "python examples/clipping_meta_gradients.py",
+  "source_sha256": "6388599ff16d30853c83afaad81dd84b1549c235925cc9137a7a4f6bb9086f1f",
+  "results": {
+    "python": "3.12.10",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "jax": "0.11.2",
+    "jaxlib": "0.11.2",
+    "numpy": "2.5.4",
+    "devices": [
+      "cpu:0"
+    ],
+    "dtype": "float32",
+    "threshold": 1.0,
+    "inner_steps": 3,
+    "expected_meta_gradient": [
+      -1.4580000000000002,
+      -1.4580000000000002,
+      -1.4580000000000002
+    ],
+    "numpy_float64_finite_difference": [
+      -1.4580000000208313,
+      -1.4580000000208313,
+      -1.4580000000208313
+    ],
+    "vmap_reverse_jacobians": "identity",
+    "observations": [
+      {
+        "compiled": false,
+        "baseline_reverse_jacobian_all_nan": true,
+        "equality_only_reverse_jacobian_all_nan": true,
+        "guard_after_sqrt_reverse_jacobian_all_nan": true,
+        "baseline_meta_gradient_all_nan": true,
+        "fixed_reverse_jacobian": "identity",
+        "fixed_meta_gradient": [
+          -1.4579999446868896,
+          -1.4579999446868896,
+          -1.4579999446868896
+        ]
+      },
+      {
+        "compiled": true,
+        "baseline_reverse_jacobian_all_nan": true,
+        "equality_only_reverse_jacobian_all_nan": true,
+        "guard_after_sqrt_reverse_jacobian_all_nan": true,
+        "baseline_meta_gradient_all_nan": true,
+        "fixed_reverse_jacobian": "identity",
+        "fixed_meta_gradient": [
+          -1.4579999446868896,
+          -1.4579999446868896,
+          -1.4579999446868896
+        ]
+      }
+    ]
+  }
+}

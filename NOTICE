@@ -6,5 +6,11 @@ https://github.com/jax-ml/jax
 Copyright The JAX Authors.
 JAX is licensed under the Apache License, Version 2.0.
 
+The vector clipping expressions in examples/clipping_meta_gradients.py
+are adapted from Optax:
+https://github.com/google-deepmind/optax
+Copyright 2019 DeepMind Technologies Limited. All Rights Reserved.
+Optax is licensed under the Apache License, Version 2.0.
+
 This repository is an independent educational contribution and is not an
-official JAX project publication.
+official JAX or Optax project publication.
