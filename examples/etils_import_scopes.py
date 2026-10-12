@@ -281,8 +281,11 @@ def main():
             if record["name"] in expected_failures:
                 assert record["actual"] == baseline_observations[record["name"]], record
     assert failures == expected_failures, (records, failures, expected_failures)
+    # One log record prevents expected baseline finalizer stderr from being
+    # interleaved between the lines of a pretty-printed JSON report in CI.
     print(
-        json.dumps(
+        "ETILS_LAB_RESULT="
+        + json.dumps(
             {
                 "mode": args.expect,
                 "revision": revision,
@@ -296,8 +299,9 @@ def main():
                 else "Linux only",
                 "records": records,
             },
-            indent=2,
-        )
+            sort_keys=True,
+        ),
+        flush=True,
     )
 
 
