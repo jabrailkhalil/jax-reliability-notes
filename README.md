@@ -9,13 +9,13 @@ I follow a small loop: calculate an independent expected result, reproduce the b
 | Case | User-visible problem | Upstream contribution |
 | --- | --- | --- |
 | [Keyword forwarding](case-studies/keyword-forwarding.md) | A supplied loss coefficient is ignored; both the value and gradient are wrong. | [JAX #41156](https://github.com/jax-ml/jax/pull/41156) |
-| [Uneven collective groups](case-studies/uneven-collectives.md) | A group mean uses another group's size; constant sums and gradients are also wrong. | [JAX #41157](https://github.com/jax-ml/jax/pull/41157) |
+| [Uneven collective groups](case-studies/uneven-collectives.md) | A group mean uses another group's size; constant sums and gradients are also wrong. | [JAX #41157](https://github.com/jax-ml/jax/pull/41157), closed as superseded by a maintainer fix |
 | [Generalized Hermitian eigenproblems](case-studies/generalized-eigh.md) | A missing numerical API needs correct eigenvector transforms, normalization, and derivatives. | [JAX #41162](https://github.com/jax-ml/jax/pull/41162), [#41197](https://github.com/jax-ml/jax/pull/41197) |
-| [Finite meta-gradients through clipping](articles/clipping-meta-gradients-ru.md) (Русский) | Zero updates have correct forward values but NaN reverse derivatives through a short optimizer loop. | [Optax #1815](https://github.com/google-deepmind/optax/pull/1815), open as of 12 October 2026 |
+| [Finite meta-gradients through clipping](articles/clipping-meta-gradients-ru.md) (Русский) | Zero updates have correct forward values but NaN reverse derivatives through a short optimizer loop. | [Optax #1815](https://github.com/google-deepmind/optax/pull/1815), merged |
 | [Concurrent Grain worker shutdown](articles/grain-shutdown-ru.md) (Русский) | Sequential child cleanup accumulates exit delays; parallel cleanup must preserve completion, error handling, and interpreter finalization. | [Grain #1430](https://github.com/google/grain/pull/1430), open as of 12 October 2026 |
 | [Lazy import scope isolation](articles/etils-import-scopes-ru.md) (Русский) | A process-global import hook intercepts unrelated threads and GC finalizers and can leak named semaphores. | [etils #839](https://github.com/google/etils/pull/839), open as of 12 October 2026 |
 
-As of 2 October 2026, keyword forwarding and both generalized-eigh contributions are **merged**; the uneven-groups fix is **open for upstream review**. The patch copies below demonstrate the original before/after investigations. Their checks used Linux CPU. The new generalized-eigh lab uses a later source revision and was checked on Windows CPU. No accelerator execution is claimed for these labs.
+As of 31 October 2026, keyword forwarding, both generalized-eigh contributions and the Optax clipping fix are **merged**. I closed the uneven-groups PR after Jake VanderPlas landed [a maintainer-authored fix](https://github.com/jax-ml/jax/commit/f56ada2601eab90fe8a938c9e3f6b96451170623); my PR was not merged. The patch copies below demonstrate the original before/after investigations. Their checks used Linux CPU. The generalized-eigh lab uses a later source revision and was checked on Windows CPU. No accelerator execution is claimed for these labs.
 
 ## Run the before/after examples
 

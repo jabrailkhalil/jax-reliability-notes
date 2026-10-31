@@ -2,7 +2,7 @@
 
 By Jabrail Khalil. [Issue #41132](https://github.com/jax-ml/jax/issues/41132) · [Submitted PR #41157](https://github.com/jax-ml/jax/pull/41157).
 
-The contribution is open for review. I reproduced the problem on CPU; GPU and TPU validation remain for upstream CI.
+Update, 31 October 2026: Jake VanderPlas fixed the reported issue in [upstream commit f56ada2601](https://github.com/jax-ml/jax/commit/f56ada2601eab90fe8a938c9e3f6b96451170623) on 30 October. I closed my PR as superseded; it was not merged. The issue was reported by [the-Shallow](https://github.com/the-Shallow). The reproduction and test results below describe my original CPU investigation at the pinned revisions, not a new run against current main. I did not execute GPU or TPU checks.
 
 ## A four-device example
 
@@ -26,9 +26,9 @@ I then checked `psum(1)` using the same groups. It should return each device's g
 
 The `psum` constant shortcut multiplied a constant by the length of the first group. That is valid when all groups have the same size. With uneven groups, the value supplied by each device is constant, but the reduction result varies by group. The shortcut erased that distinction.
 
-My fix preserves the shortcut for equal-size groups and lets uneven groups use the existing collective implementation. The implementation can then calculate a different sum for each group.
+My submitted patch preserves the shortcut for equal-size groups and lets uneven groups use the existing collective implementation. The implementation can then calculate a different sum for each group.
 
-This exposed a second requirement: the group-size collective produces an integer array. Dividing a float or complex output by that array needs an explicit dtype conversion under strict promotion. I convert the divisor to each output leaf's dtype before dividing.
+This exposed a second requirement: the group-size collective produces an integer array. My submitted variant converts the divisor to each output leaf's dtype before dividing under strict promotion. The maintainer's implementation instead preserves the collective result's `weak_type`, allowing the existing division to retain normal promotion behavior. This lab keeps my original patch for the pinned comparison; it does not reproduce the maintainer's implementation.
 
 ## Check gradients, not only forward values
 
