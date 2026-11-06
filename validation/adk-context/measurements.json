@@ -1,0 +1,53 @@
+{
+  "source_revision": "9d28d3b85fc9190eda292354303943ea940576f8",
+  "workflow": "https://github.com/jabrailkhalil/jax-reliability-notes/actions/runs/42253136919",
+  "upstream_baseline": "a1603c7f179af285b08ef4f03e757a6deb0630b9",
+  "upstream_fixed": "6caa3b853ea4d179124f089daf6f39498dc93425",
+  "go": "1.26.10",
+  "python": "3.12.10",
+  "executed": {
+    "ubuntu-latest": "python examples/adk-context/run.py --race",
+    "windows-latest": "python examples/adk-context/run.py"
+  },
+  "observations": "Each revision matched6 expected behaviors; parent matched2 fixed contracts and accepted source matched6. Opposite expectation rejected exactly4 named cases on each platform. Invalid modes rejected before scenario execution.",
+  "provider_calls": 0,
+  "files": [
+    {
+      "path": "validation/adk-context/ubuntu-latest/adk-baseline-wrong-expectation.json",
+      "sha256": "9884d1904d862c0911827dea009668b71c52d7248f173fb88fad8a436e8447f0"
+    },
+    {
+      "path": "validation/adk-context/ubuntu-latest/adk-baseline.json",
+      "sha256": "98a3536401bb14a030730b8cc18829d832ead4e16ba27f238a2834327d5631bd"
+    },
+    {
+      "path": "validation/adk-context/ubuntu-latest/adk-fixed-wrong-expectation.json",
+      "sha256": "024d05209b7c0ee5e7a05684ca64d8593db141a69493d34be5e27646f1d4840a"
+    },
+    {
+      "path": "validation/adk-context/ubuntu-latest/adk-fixed.json",
+      "sha256": "6ef61c6d502244e733a0e68a2df4ff92b12acd76cdc1a23732a6725fd598f810"
+    },
+    {
+      "path": "validation/adk-context/windows-latest/adk-baseline-wrong-expectation.json",
+      "sha256": "9884d1904d862c0911827dea009668b71c52d7248f173fb88fad8a436e8447f0"
+    },
+    {
+      "path": "validation/adk-context/windows-latest/adk-baseline.json",
+      "sha256": "98a3536401bb14a030730b8cc18829d832ead4e16ba27f238a2834327d5631bd"
+    },
+    {
+      "path": "validation/adk-context/windows-latest/adk-fixed-wrong-expectation.json",
+      "sha256": "024d05209b7c0ee5e7a05684ca64d8593db141a69493d34be5e27646f1d4840a"
+    },
+    {
+      "path": "validation/adk-context/windows-latest/adk-fixed.json",
+      "sha256": "6ef61c6d502244e733a0e68a2df4ff92b12acd76cdc1a23732a6725fd598f810"
+    }
+  ],
+  "limitations": [
+    "Synthetic local recording models, in-memory sessions.",
+    "No live provider/cloud deployment or stable-release claim.",
+    "Self-study material, no delivered workshop or external use claimed."
+  ]
+}

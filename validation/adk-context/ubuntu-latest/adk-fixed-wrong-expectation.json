@@ -1,0 +1,85 @@
+{
+  "expected": "baseline",
+  "cases": [
+    {
+      "name": "empty_foreign_part_does_not_cut_out_user",
+      "expected_behavior_matched": false,
+      "fixed_contract_matched": true,
+      "observation": {
+        "producer_calls": 1,
+        "reviewer_calls": 1,
+        "current_user_present": true,
+        "request_contents": 1,
+        "stored_events": 3,
+        "stored_events_unchanged": true
+      }
+    },
+    {
+      "name": "foreign_signature_does_not_cut_out_user",
+      "expected_behavior_matched": false,
+      "fixed_contract_matched": true,
+      "observation": {
+        "producer_calls": 1,
+        "reviewer_calls": 1,
+        "current_user_present": true,
+        "request_contents": 1,
+        "stored_events": 3,
+        "stored_events_unchanged": true
+      }
+    },
+    {
+      "name": "foreign_metadata_does_not_cut_out_user",
+      "expected_behavior_matched": false,
+      "fixed_contract_matched": true,
+      "observation": {
+        "producer_calls": 1,
+        "reviewer_calls": 1,
+        "current_user_present": true,
+        "request_contents": 1,
+        "stored_events": 3,
+        "stored_events_unchanged": true
+      }
+    },
+    {
+      "name": "inline_payload_keeps_attached_signature",
+      "expected_behavior_matched": false,
+      "fixed_contract_matched": true,
+      "observation": {
+        "producer_calls": 1,
+        "reviewer_calls": 1,
+        "current_user_present": true,
+        "request_contents": 2,
+        "stored_events": 3,
+        "stored_events_unchanged": true
+      }
+    },
+    {
+      "name": "ordinary_foreign_text_retained",
+      "expected_behavior_matched": true,
+      "fixed_contract_matched": true,
+      "observation": {
+        "producer_calls": 1,
+        "reviewer_calls": 1,
+        "current_user_present": true,
+        "request_contents": 2,
+        "stored_events": 3,
+        "stored_events_unchanged": true
+      }
+    },
+    {
+      "name": "own_agent_thought_unchanged",
+      "expected_behavior_matched": true,
+      "fixed_contract_matched": true,
+      "observation": {
+        "producer_calls": 1,
+        "reviewer_calls": 1,
+        "current_user_present": true,
+        "request_contents": 3,
+        "stored_events": 4,
+        "stored_events_unchanged": true
+      }
+    }
+  ],
+  "expected_behavior_matches": 2,
+  "fixed_contract_matches": 6
+}

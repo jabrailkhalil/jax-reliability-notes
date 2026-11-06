@@ -60,6 +60,8 @@ The JSON files appear under `.lab/adk-baseline.json` and `.lab/adk-fixed.json`. 
 
 The runner also deliberately supplies the opposite expectation to each binary. Both commands must fail, and the [result checker](../examples/adk-context/check_results.py) requires exactly the four named request-contract differences. A timeout, panic, storage mutation or unexpected model call cannot count as successful bug reproduction. Invalid command modes must fail before the scenarios run.
 
+The [recorded Linux and Windows measurements](../validation/adk-context/measurements.json) contain both successful revision checks and both deliberately wrong expectations. Linux used the race detector. The source revision and CI run are recorded alongside the JSON.
+
 The [CI workflow](../.github/workflows/adk-context.yml) runs the same entry point on Linux with the race detector and on Windows without it. It checks formatting and `go vet` and uploads the measured JSON. This validates these source-level model-bound requests. It does not establish acceptance by a live provider, a cloud deployment, database-backed sessions or measured production impact.
 
 ## A short exercise
