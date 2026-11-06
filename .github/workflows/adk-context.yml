@@ -44,3 +44,5 @@ jobs:
         with:
           name: adk-context-${{ matrix.os }}
           path: .lab/adk-*.json
+          include-hidden-files: true
+          if-no-files-found: error
