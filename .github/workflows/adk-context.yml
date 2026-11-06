@@ -15,7 +15,7 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            race: '-race'
+            race: '--race'
           - os: windows-latest
             race: ''
     runs-on: ${{ matrix.os }}
@@ -35,49 +35,10 @@ jobs:
           cache: false
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
-          python-version: '3.12.14'
-      - name: Check formatting
-        shell: bash
-        run: test -z "$(gofmt -l examples/adk-context/main.go)"
-      - name: Fetch exact upstream parent and accepted merge
-        shell: bash
-        run: |
-          git init .lab/adk-go
-          git -C .lab/adk-go fetch --depth=1 https://github.com/google/adk-go.git a1603c7f179af285b08ef4f03e757a6deb0630b9
-          git -C .lab/adk-go fetch --depth=1 https://github.com/google/adk-go.git 6caa3b853ea4d179124f089daf6f39498dc93425
+          python-version: '3.12.10'
       - name: Execute both revisions and reject the opposite expectation
         shell: bash
-        run: |
-          set -euo pipefail
-          for mode in baseline fixed; do
-            if [ "$mode" = baseline ]; then
-              revision=a1603c7f179af285b08ef4f03e757a6deb0630b9
-              wrong=fixed
-            else
-              revision=6caa3b853ea4d179124f089daf6f39498dc93425
-              wrong=baseline
-            fi
-            git -C .lab/adk-go checkout --detach "$revision"
-            (
-              cd .lab/adk-go
-              go vet -mod=readonly ../../examples/adk-context/main.go
-              go build $RACE -mod=readonly -o ../adk-context-lab.exe ../../examples/adk-context/main.go
-            )
-            .lab/adk-context-lab.exe --expect "$mode" > ".lab/adk-$mode.json"
-            set +e
-            .lab/adk-context-lab.exe --expect "$wrong" > ".lab/adk-$mode-wrong-expectation.json"
-            result=$?
-            set -e
-            test "$result" -eq 1
-            set +e
-            .lab/adk-context-lab.exe --expect invalid > .lab/adk-invalid.json
-            result=$?
-            set -e
-            test "$result" -eq 2
-            test ! -s .lab/adk-invalid.json
-            git -C .lab/adk-go diff --exit-code -- go.mod go.sum
-          done
-          python examples/adk-context/check_results.py .lab
+        run: python examples/adk-context/run.py $RACE
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         if: always()
         with:

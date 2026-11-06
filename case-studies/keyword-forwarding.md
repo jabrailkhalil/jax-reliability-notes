@@ -2,7 +2,7 @@
 
 By Jabrail Khalil. [Issue #41121](https://github.com/jax-ml/jax/issues/41121) · [Submitted PR #41156](https://github.com/jax-ml/jax/pull/41156).
 
-The contribution is open for review. This article describes my CPU reproduction and submitted fix, not a released upstream change.
+My change was [merged on 1 October 2026](https://github.com/jax-ml/jax/commit/9379227e18c8e98a2ac675e9d8bc482bd3ec7d50) and is included in [JAX v0.12.0](https://github.com/jax-ml/jax/releases/tag/jax-v0.12.0). The CPU reproductions and test counts below describe the pinned revisions used for the original investigation.
 
 ## Start with an answer that is easy to calculate
 

@@ -25,5 +25,11 @@ The original thread/finalizer/overlapping-scope reproductions and proposed
 caller-scoping/shared-registry direction were supplied by mahdi-shafiei:
 https://github.com/google/etils/issues/838
 
+The context lab in examples/adk-context/main.go adapts the public Runner
+validation probe for Google ADK Go:
+https://github.com/jabrailkhalil/adk-go/blob/6dd62f62abb056a8d83f4c2965bbd65e1b3f8949/.github/validation/runner-probe.go
+Copyright 2026 Google LLC.
+Google ADK Go is licensed under the Apache License, Version 2.0.
+
 This repository is an independent educational contribution and is not an
-official JAX, Optax, Grain, or etils project publication.
+official JAX, Optax, Grain, etils, or Google ADK project publication.

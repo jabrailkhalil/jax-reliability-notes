@@ -1,6 +1,6 @@
 # JAX reliability notes
 
-Reproducible investigations of JAX correctness bugs, by Jabrail Khalil.
+Reproducible investigations of JAX correctness and related Google AI infrastructure, by Jabrail Khalil.
 
 I follow a small loop: calculate an independent expected result, reproduce the bug on upstream code, understand the transformation involved, and add a regression test before changing the implementation.
 
@@ -87,6 +87,10 @@ In [my Russian-language Fisher LDA article](articles/generalized-eigh-lda-ru.md)
 
 The [English article](articles/generalized-eigh-lda.md) and 45-minute hands-on worksheet ([English](workshops/fisher-lda.md) / [Русский](workshops/fisher-lda-ru.md)) make the lab available for self-study and future community sessions. Both example modes were rerun successfully on Windows CPU on 3 October 2026. The worksheet includes independent-reference exercises and explicitly separates tested numerical behavior from unmeasured model quality or audience impact.
 
+## Agent context boundaries
+
+The [ADK Go context lab](case-studies/adk-context-boundaries.md) follows a user request through two sequential agents with local recording models. It compares the exact parent and accepted source of [ADK Go #1895](https://github.com/google/adk-go/pull/1895), including metadata-only events, retained payload signatures and unchanged stored history. One Python entry point runs the six scenarios and their negative controls without API keys. The material is independent of the ADK project and has not been delivered as a workshop.
+
 ## License
 
-The educational material and examples are licensed under Apache-2.0. The patch excerpts modify JAX, which is also licensed under Apache-2.0; their upstream context remains copyright The JAX Authors. The clipping lab adapts Optax expressions, copyright DeepMind Technologies Limited, also under Apache-2.0. The shutdown lab loads pinned Grain source, copyright Google LLC, under the same license. The import-scope lab uses pinned etils, copyright The etils Authors, also under Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+The educational material and examples are licensed under Apache-2.0. The patch excerpts modify JAX, which is also licensed under Apache-2.0; their upstream context remains copyright The JAX Authors. The clipping lab adapts Optax expressions, copyright DeepMind Technologies Limited, also under Apache-2.0. The shutdown lab loads pinned Grain source, copyright Google LLC, under the same license. The import-scope lab uses pinned etils, copyright The etils Authors, also under Apache-2.0. The ADK lab adapts the author-validation probe for Google ADK Go, copyright Google LLC, under Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
