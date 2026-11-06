@@ -1,6 +1,7 @@
 .venv/
 .venv-clipping/
 .venv-dataset-diff/
+.venv-ocr-review/
 .lab/
 __pycache__/
 *.py[cod]

@@ -1,0 +1,48 @@
+name: Check positional OCR review
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  positional-ocr:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.11'
+          - os: ubuntu-latest
+            python: '3.14'
+          - os: windows-latest
+            python: '3.12.10'
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 12
+    env:
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install published OCRmyPDF and check tools
+        run: python -m pip install -r requirements-ocr-review.txt
+      - name: Check style and local types
+        run: |
+          python -m ruff check examples/ocr_review.py examples/ocr_review_validation.py tests/test_ocr_review.py
+          python -m ruff format --check examples/ocr_review.py examples/ocr_review_validation.py tests/test_ocr_review.py
+          python -m mypy --ignore-missing-imports --follow-imports=skip --check-untyped-defs examples/ocr_review.py
+      - name: Check public models, independent oracles and broken controls
+        run: python examples/ocr_review_validation.py --output .lab/ocr-review/results.json
+      - name: Save exact results
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: ocr-review-${{ matrix.os }}-${{ matrix.python }}
+          path: .lab/ocr-review/results.json
+          if-no-files-found: error

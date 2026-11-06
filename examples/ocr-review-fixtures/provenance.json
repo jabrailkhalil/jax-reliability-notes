@@ -1,0 +1,53 @@
+{
+  "scope": "Synthetic hand-written observations and independent gold labels only; no OCR inference, PDF parsing or dataset/transcription accuracy measurement.",
+  "baseline_a_sha256": "6675e858864b08942e7e1ef134f9d7961e9a99f1ecae4662a8da1f690017b719",
+  "baseline_b_sha256": "897722b838414ddc39202ad6d45873c550c52c5b543b6d05434c82e5aeb808a7",
+  "comparison_binding": "2649a6a82e3cf0fa718bdeb00376386a3e0205b1ce1c8ae0b2e5effc3176bcf7",
+  "binding_note": "Hash formulas duplicate only documented identity serialization to bind concrete decision fixtures. Expected grouping/text/error labels are literal and not obtained by executing the comparison implementation.",
+  "expected_baseline": {
+    "queue_regions": [
+      "g1",
+      "g4"
+    ],
+    "error_regions": [
+      "g1",
+      "g2",
+      "g4"
+    ],
+    "caught_regions": [
+      "g1",
+      "g4"
+    ],
+    "missed_regions": [
+      "g2"
+    ],
+    "caught": 2,
+    "denominator": 3,
+    "missed": 1,
+    "recall": "2/3",
+    "decisions": {
+      "g1": "accept_a ->100",
+      "g4": "accept_b ->7",
+      "g2": "correct ->80, agreement region reached by independent audit"
+    }
+  },
+  "files": {
+    "ambiguous-a.json": "faf705f1d0d667706e64e0f98f9c74fd52f6916d7b5e8cd5846c958eabc0d533",
+    "ambiguous-b.json": "88420dd908f7d0e85b0a78fa885abe63515aec5815e48edd2259dc1beb4a2b38",
+    "different-frame-b.json": "13efd9284af941d6734bda9e57488ac0aa2bc8f75b2532f8ed91cbe9ca55eed3",
+    "disjoint-a.json": "0abaffc5a30c9a17f0413c40b3b66f7bcdf9d04a627f7a726f421f194391d055",
+    "disjoint-b.json": "44ab0ff5e65f4340307dcb8df34f5f55a0020d24cba3b9aa5888cbafe35e7bab",
+    "empty-a.json": "cd364d4549067c97b972c7619f1475402f255f13ed7408b100fabb1d99c907be",
+    "empty-b.json": "2f04d7e8656add1d4be2fdcc9c7267b48508206846d07fd2ea15b0c51ac56f4a",
+    "empty-gold.json": "015f26d21fdd65cc22bd51f8bdc37d27491cb6250fa253552a2e020b6d255e0a",
+    "regions-a.json": "6675e858864b08942e7e1ef134f9d7961e9a99f1ecae4662a8da1f690017b719",
+    "regions-b.json": "897722b838414ddc39202ad6d45873c550c52c5b543b6d05434c82e5aeb808a7",
+    "regions-decisions.json": "b12a1f217c3daee747ee7b640904f71403e9d069117032362c5df97b2674d7d4",
+    "regions-gold.json": "130a5262a946eae2a0e5ff4e8a037407be0069b5833c7682a33eb7c5f7325f08",
+    "shifted-a.json": "2f1c64b794281cb8f28fee44adff172f8252e2af1c9e28ea1c32a345f2a886cf",
+    "shifted-b.json": "23cb7bff6dfb6fd1c2d5754140982a03fd694e24f5b50eccfd2504e2eefff3ed",
+    "split-a.json": "9ef59f0f1426e89d1657a608b2d2dff5caaf81352b93e8ca4e0182fa156b90ff",
+    "split-b.json": "679ab40384200a2eda96c77c8dc1c0a5fecc85944a99721e2044f720adf0a8e2",
+    "stale-gold.json": "ef866e4fceada5fbc0c445c7c5b6e32fd69f9dbb5d540724479123b854ebdcfb"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "engine": "synthetic-A",
+  "frame": {
+    "id": "synthetic-page-1",
+    "page_number": 0,
+    "width": 300,
+    "height": 200
+  },
+  "tree": {
+    "ocr_class": "ocr_page",
+    "bbox": [
+      0,
+      0,
+      300,
+      200
+    ],
+    "direction": "ltr",
+    "children": [
+      {
+        "ocr_class": "ocr_line",
+        "bbox": [
+          0,
+          0,
+          300,
+          40
+        ],
+        "children": [
+          {
+            "ocr_class": "ocrx_word",
+            "bbox": [
+              10,
+              10,
+              30,
+              20
+            ],
+            "text": "100",
+            "direction": "ltr"
+          },
+          {
+            "ocr_class": "ocrx_word",
+            "bbox": [
+              50,
+              10,
+              70,
+              20
+            ],
+            "text": "B0",
+            "direction": "ltr"
+          },
+          {
+            "ocr_class": "ocrx_word",
+            "bbox": [
+              90,
+              10,
+              110,
+              20
+            ],
+            "text": "OK",
+            "direction": "ltr"
+          },
+          {
+            "ocr_class": "ocrx_word",
+            "bbox": [
+              130,
+              10,
+              150,
+              20
+            ],
+            "text": "?",
+            "direction": "ltr"
+          }
+        ]
+      }
+    ]
+  }
+}

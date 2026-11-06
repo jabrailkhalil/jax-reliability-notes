@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "engine": "synthetic-B",
+  "frame": {
+    "id": "synthetic-page-1",
+    "page_number": 0,
+    "width": 300,
+    "height": 200
+  },
+  "tree": {
+    "ocr_class": "ocr_page",
+    "bbox": [
+      0,
+      0,
+      300,
+      200
+    ],
+    "direction": "ltr",
+    "children": [
+      {
+        "ocr_class": "ocr_line",
+        "bbox": [
+          0,
+          0,
+          300,
+          40
+        ],
+        "children": [
+          {
+            "ocr_class": "ocrx_word",
+            "bbox": [
+              10,
+              10,
+              40,
+              20
+            ],
+            "text": "c",
+            "direction": "ltr"
+          },
+          {
+            "ocr_class": "ocrx_word",
+            "bbox": [
+              20,
+              10,
+              50,
+              20
+            ],
+            "text": "d",
+            "direction": "ltr"
+          }
+        ]
+      }
+    ]
+  }
+}

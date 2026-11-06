@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "comparison_id": "2649a6a82e3cf0fa718bdeb00376386a3e0205b1ce1c8ae0b2e5effc3176bcf7",
+  "decisions": [
+    {
+      "group": "b83c8a3605086468722521defd6f39f33ba1e05a3a74bda90d3f755884ba3dd3",
+      "outcome": "accept_a"
+    },
+    {
+      "group": "2c0a4d106c26522fbc2dc7b956b1f598e936a6739227133f6701dafe59bd540d",
+      "outcome": "accept_b"
+    },
+    {
+      "group": "07e750515f75706a168117088dbd107cd57000d90e16f630702b0333dbb9655f",
+      "outcome": "correct",
+      "correction": "80"
+    }
+  ]
+}

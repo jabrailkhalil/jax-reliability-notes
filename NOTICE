@@ -38,3 +38,10 @@ vendored in the dataset lab.
 
 This repository is an independent educational contribution and is not an
 official JAX, Optax, Grain, etils, Google ADK, or Hugging Face publication.
+
+The positional OCR review lab consumes public models from OCRmyPDF:
+https://github.com/ocrmypdf/OCRmyPDF
+OCRmyPDF's model implementation is Copyright 2025 James R. Barlow,
+licensed under MPL-2.0. No upstream source is vendored in this lab.
+The positional OCR material is an independent educational contribution,
+not an official OCRmyPDF publication.
