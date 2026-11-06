@@ -59,6 +59,16 @@ python examples/ocr_review_validation.py --output .lab/ocr-review/results.json
 
 The runner records the installed package version and verifies the exact upstream model-file SHA256 before running the lab. The [workflow](../.github/workflows/ocr-review.yml) uses Linux Python 3.11/3.14 and Windows Python 3.12.10. It installs the actual package through pip rather than substituting model classes.
 
+I ran the following matrix on 6 November 2026 at source `514fbdb1de9582d97d101e80d887527bd60ae6ae`:
+
+| Environment | Tests | Successful subtests | CLI scenarios | Broken controls caught |
+| --- | --- | --- | --- | --- |
+| Linux, Python 3.11.18 | 24 | 118 | 9 | 4 |
+| Linux, Python 3.14.10 | 24 | 118 | 9 | 4 |
+| Windows, Python 3.12.10 | 24 | 118 | 9 | 4 |
+
+The pristine suites had no skips, failures or errors. Each broken variant failed its intended independent assertion: text-only pairing, a queue-only gold denominator, ignored corrections, and a capped-prefix comparison. The measured CLI retained the 2/3 recall after recording the `80` correction. Ruff and local-source mypy checks passed; the mypy invocation skips dependency internals. The [full JSON reports and CI manifest](../validation/ocr-review/manifest.json) retain the source-model hash, installed dependency versions, commands and expected-failure logs.
+
 This first slice accepts one declared common frame, LTR axis-aligned word geometry and a bounded tree. The defaults are 100 words, 500 nodes, depth 8 and 1 MiB per observation; canvas dimensions are integral pixels from 1 to 1,000,000. Non-finite/zero-area/out-of-bounds boxes, unsupported rotations/polygons/directions, stale decisions, incomplete gold coverage and budget overflow fail validation. I calculate IoU area products with exact rational arithmetic before converting the ratio to a float, so tiny valid boxes cannot silently lose an overlap through area underflow. After dependencies load, the CLI returns 2 for invalid input and 3 for an unexpected runtime error, with `complete: false`. A successful full comparison returns 0; `complete` describes the comparison inputs, not the correctness of the OCR or completion of human review.
 
 The frame ID is a caller declaration. I do not validate that two real image rasters share that identity or perform registration, deskewing, DPI conversion, PDF rendering, live OCR, browser interaction or real human review. Text scoring uses exact strings joined in the annotation's explicit path order with single spaces; it does not measure layout accuracy, CER or WER. I make no general claim that this queue improves recognition quality or is ready for every document layout. This is self-study material and an initial comparison contract for review.

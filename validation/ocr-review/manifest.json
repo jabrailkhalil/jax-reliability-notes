@@ -1,0 +1,146 @@
+{
+  "recorded_at": "2026-11-06T20:03:41.935728+00:00",
+  "source_commit": "514fbdb1de9582d97d101e80d887527bd60ae6ae",
+  "command": "python examples/ocr_review_validation.py --output .lab/ocr-review/results.json",
+  "jobs_passed": 19,
+  "ci": [
+    {
+      "id": 42284138125,
+      "url": "https://github.com/jabrailkhalil/jax-reliability-notes/actions/runs/42284138125",
+      "head": "514fbdb1de9582d97d101e80d887527bd60ae6ae",
+      "name": "Check positional OCR review",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 128120467506,
+          "name": "positional-ocr (ubuntu-latest, 3.14)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467976,
+          "name": "positional-ocr (windows-latest, 3.12.10)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120468190,
+          "name": "positional-ocr (ubuntu-latest, 3.11)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 42284137929,
+      "url": "https://github.com/jabrailkhalil/jax-reliability-notes/actions/runs/42284137929",
+      "head": "514fbdb1de9582d97d101e80d887527bd60ae6ae",
+      "name": "Reproduce JAX cases",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 128120467361,
+          "name": "generalized-eigh",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467609,
+          "name": "etils-import-scopes (windows-latest, 3.13)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467623,
+          "name": "clipping-meta-gradients",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467689,
+          "name": "grain-shutdown (windows-latest, 3.13)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467691,
+          "name": "grain-shutdown (macos-latest, 3.12)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467727,
+          "name": "etils-import-scopes (ubuntu-latest, 3.14)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467815,
+          "name": "before-and-after",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467818,
+          "name": "grain-shutdown (ubuntu-latest, 3.11)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467835,
+          "name": "etils-import-scopes (ubuntu-latest, 3.11)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467844,
+          "name": "grain-shutdown (ubuntu-latest, 3.14)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467918,
+          "name": "etils-import-scopes (macos-latest, 3.12)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 42284137930,
+      "url": "https://github.com/jabrailkhalil/jax-reliability-notes/actions/runs/42284137930",
+      "head": "514fbdb1de9582d97d101e80d887527bd60ae6ae",
+      "name": "Check local dataset snapshots",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 128120467446,
+          "name": "dataset-diff (ubuntu-latest, 3.14)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467868,
+          "name": "dataset-diff (windows-latest, 3.12.10)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467989,
+          "name": "dataset-diff (ubuntu-latest, 3.11)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 42284137961,
+      "url": "https://github.com/jabrailkhalil/jax-reliability-notes/actions/runs/42284137961",
+      "head": "514fbdb1de9582d97d101e80d887527bd60ae6ae",
+      "name": "Reproduce ADK context boundaries",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 128120467299,
+          "name": "before-and-after (ubuntu-latest, --race)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128120467738,
+          "name": "before-and-after (windows-latest)",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "file_sha256": {
+    "ocr-review-ubuntu-latest-3.11.json": "4ce5cd62966ea4f4d4b805801d86b94cc7dc675f3bce28847ca8477b9a17a89c",
+    "ocr-review-ubuntu-latest-3.14.json": "f082934a4a49fe11d6a20cbc14eaa5c22ccc8998aa52c058855d09f2fdeab2ad",
+    "ocr-review-windows-latest-3.12.10.json": "6c70f11027d66297b14695377c507c4d026f0c324eac0a4a1037648cbca64466"
+  },
+  "scope": "Actual installed OCRmyPDF17.13.0 public models and exactsourcehash;syntheticobservations/literalgold only;noOCR/PDF/browser/humanreview/realaccuracybenchmark.",
+  "local_validation": "Ruffformat/check,py_compile,mypydependencytraversalskipped;nativeOCRpackageandruntimechecksremoteonly."
+}

@@ -1,0 +1,765 @@
+{
+  "at": "2026-11-06T19:57:40.292733+00:00",
+  "python": "3.11.18 (main, Oct 26 2026, 02:48:34) [GCC 13.3.0]",
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "scope": "Synthetic positional observations and literal gold; actual installed upstream models, no OCR/PDF/image/browser or human evaluation.",
+  "success": true,
+  "packages": {
+    "Pygments": "2.21.0",
+    "annotated-types": "0.8.0",
+    "ast_serialize": "0.13.1",
+    "attrs": "26.1.0",
+    "cffi": "2.1.1",
+    "charset-normalizer": "3.5.2",
+    "cryptography": "50.0.2",
+    "fonttools": "4.68.0",
+    "fpdf2": "2.9.0",
+    "img2pdf": "0.6.3",
+    "jsonschema": "4.26.0",
+    "jsonschema-specifications": "2025.9.1",
+    "librt": "0.16.0",
+    "lxml": "6.1.3",
+    "markdown-it-py": "4.2.0",
+    "mdurl": "0.1.2",
+    "mypy": "2.3.1",
+    "mypy_extensions": "1.2.0",
+    "ocrmypdf": "17.13.0",
+    "packaging": "26.3",
+    "pathspec": "1.1.1",
+    "pdfminer.six": "20260107",
+    "pikepdf": "10.17.0",
+    "pillow": "13.0.0",
+    "pip": "26.2.2",
+    "pluggy": "1.7.0",
+    "pycparser": "3.12",
+    "pydantic": "2.14.3",
+    "pydantic_core": "2.50.4",
+    "pypdfium2": "5.15.0",
+    "referencing": "0.37.0",
+    "rich": "15.0.0",
+    "rpds-py": "2026.9.1",
+    "ruff": "0.15.0",
+    "setuptools": "79.0.1",
+    "typing-inspection": "0.4.5",
+    "typing_extensions": "4.16.0",
+    "uharfbuzz": "0.57.0"
+  },
+  "upstream": {
+    "package": "ocrmypdf",
+    "version": "17.13.0",
+    "public_import": "from ocrmypdf import OcrElement, BoundingBox, OcrClass",
+    "model_module": "ocrmypdf.models.ocr_element",
+    "model_source_sha256": "faa49ece375f521a1164f772553828c0d514edce11bbdf5578b130b168bf5831",
+    "model_from_installed_distribution": true,
+    "actual_dataclass_construction_and_words_checked": true,
+    "ocr_pipeline_executed": false
+  },
+  "unittest": {
+    "tests_run": 24,
+    "subtests": 118,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "log": "test_accepting_an_empty_unmatched_side_is_explicit_deletion (test_ocr_review.OcrReviewOracleTests.test_accepting_an_empty_unmatched_side_is_explicit_deletion) ... ok\ntest_cli_complete_success_and_invalid_input_on_either_side (test_ocr_review.OcrReviewOracleTests.test_cli_complete_success_and_invalid_input_on_either_side) ... ok\ntest_cli_rejects_stale_gold_and_unknown_decisions (test_ocr_review.OcrReviewOracleTests.test_cli_rejects_stale_gold_and_unknown_decisions) ... ok\ntest_cli_unexpected_native_construction_error_is_incomplete_exit_three (test_ocr_review.OcrReviewOracleTests.test_cli_unexpected_native_construction_error_is_incomplete_exit_three) ... ok\ntest_decisions_preserve_sources_and_correct_agreement_errors (test_ocr_review.OcrReviewOracleTests.test_decisions_preserve_sources_and_correct_agreement_errors) ... ok\ntest_deep_json_is_invalid_not_an_unexpected_cli_failure (test_ocr_review.OcrReviewOracleTests.test_deep_json_is_invalid_not_an_unexpected_cli_failure) ... ok\ntest_exact_limits_and_malformed_json_never_silently_truncate (test_ocr_review.OcrReviewOracleTests.test_exact_limits_and_malformed_json_never_silently_truncate) ... ok\ntest_frame_mismatch_and_invalid_thresholds_fail_closed (test_ocr_review.OcrReviewOracleTests.test_frame_mismatch_and_invalid_thresholds_fail_closed) ... ok\ntest_gold_annotation_order_controls_joined_text_and_counts_region_once (test_ocr_review.OcrReviewOracleTests.test_gold_annotation_order_controls_joined_text_and_counts_region_once) ... ok\ntest_gold_counts_agreed_wrong_and_both_missing_regions (test_ocr_review.OcrReviewOracleTests.test_gold_counts_agreed_wrong_and_both_missing_regions) ... ok\ntest_invalid_decisions_reject_stale_unknown_and_duplicate_targets (test_ocr_review.OcrReviewOracleTests.test_invalid_decisions_reject_stale_unknown_and_duplicate_targets) ... ok\ntest_invalid_gold_rejects_partial_duplicate_or_stale_annotations (test_ocr_review.OcrReviewOracleTests.test_invalid_gold_rejects_partial_duplicate_or_stale_annotations) ... ok\ntest_invalid_observation_schema_geometry_and_layout_are_rejected (test_ocr_review.OcrReviewOracleTests.test_invalid_observation_schema_geometry_and_layout_are_rejected) ... ok\ntest_iou_threshold_is_inclusive_and_requires_real_intersection (test_ocr_review.OcrReviewOracleTests.test_iou_threshold_is_inclusive_and_requires_real_intersection) ... ok\ntest_many_to_many_overlap_is_ambiguous_without_arbitrary_pairing (test_ocr_review.OcrReviewOracleTests.test_many_to_many_overlap_is_ambiguous_without_arbitrary_pairing) ... ok\ntest_native_projection_ignores_aggregate_text_and_keeps_raw_paths (test_ocr_review.OcrReviewOracleTests.test_native_projection_ignores_aggregate_text_and_keeps_raw_paths) ... ok\ntest_raw_source_bytes_and_threshold_bind_comparison_and_group_ids (test_ocr_review.OcrReviewOracleTests.test_raw_source_bytes_and_threshold_bind_comparison_and_group_ids) ... ok\ntest_reordered_duplicate_words_match_positions_not_tree_order (test_ocr_review.OcrReviewOracleTests.test_reordered_duplicate_words_match_positions_not_tree_order) ... ok\ntest_same_text_disjoint_positions_remain_unmatched (test_ocr_review.OcrReviewOracleTests.test_same_text_disjoint_positions_remain_unmatched) ... ok\ntest_split_and_merge_are_reviewable_even_when_joined_text_matches (test_ocr_review.OcrReviewOracleTests.test_split_and_merge_are_reviewable_even_when_joined_text_matches) ... ok\ntest_text_comparison_does_not_normalize_case_spaces_or_unicode (test_ocr_review.OcrReviewOracleTests.test_text_comparison_does_not_normalize_case_spaces_or_unicode) ... ok\ntest_tiny_finite_boxes_keep_their_geometric_overlap (test_ocr_review.OcrReviewOracleTests.test_tiny_finite_boxes_keep_their_geometric_overlap) ... ok\ntest_word_limit_rejects_overflow_instead_of_comparing_prefix (test_ocr_review.OcrReviewOracleTests.test_word_limit_rejects_overflow_instead_of_comparing_prefix) ... ok\ntest_zero_error_and_empty_observations_have_null_recall (test_ocr_review.OcrReviewOracleTests.test_zero_error_and_empty_observations_have_null_recall) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.042s\n\nOK\n"
+  },
+  "cli": {
+    "independent-four-region-gold-and-decisions": {
+      "exit_code": 0,
+      "report": {
+        "status": "compared",
+        "complete": true,
+        "comparison_id": "2649a6a82e3cf0fa718bdeb00376386a3e0205b1ce1c8ae0b2e5effc3176bcf7",
+        "a_source": "6675e858864b08942e7e1ef134f9d7961e9a99f1ecae4662a8da1f690017b719",
+        "b_source": "897722b838414ddc39202ad6d45873c550c52c5b543b6d05434c82e5aeb808a7",
+        "frame": {
+          "id": "synthetic-page-1",
+          "page_number": 0,
+          "width": 300,
+          "height": 200
+        },
+        "groups": [
+          {
+            "id": "07e750515f75706a168117088dbd107cd57000d90e16f630702b0333dbb9655f",
+            "kind": "agreement",
+            "needs_review": false,
+            "a": [
+              {
+                "path": "/0/1",
+                "line": "/0",
+                "text": "B0",
+                "bbox": [
+                  50.0,
+                  10.0,
+                  70.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "b": [
+              {
+                "path": "/0/1",
+                "line": "/0",
+                "text": "B0",
+                "bbox": [
+                  50.0,
+                  10.0,
+                  70.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ]
+          },
+          {
+            "id": "2c0a4d106c26522fbc2dc7b956b1f598e936a6739227133f6701dafe59bd540d",
+            "kind": "text",
+            "needs_review": true,
+            "a": [
+              {
+                "path": "/0/3",
+                "line": "/0",
+                "text": "?",
+                "bbox": [
+                  130.0,
+                  10.0,
+                  150.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "b": [
+              {
+                "path": "/0/3",
+                "line": "/0",
+                "text": "7",
+                "bbox": [
+                  130.0,
+                  10.0,
+                  150.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ]
+          },
+          {
+            "id": "b83c8a3605086468722521defd6f39f33ba1e05a3a74bda90d3f755884ba3dd3",
+            "kind": "text",
+            "needs_review": true,
+            "a": [
+              {
+                "path": "/0/0",
+                "line": "/0",
+                "text": "100",
+                "bbox": [
+                  10.0,
+                  10.0,
+                  30.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "b": [
+              {
+                "path": "/0/0",
+                "line": "/0",
+                "text": "101",
+                "bbox": [
+                  10.0,
+                  10.0,
+                  30.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ]
+          },
+          {
+            "id": "c691abe9fdf0691128150e83976865886fd67bf6a549f2cb8d61891ac68d845d",
+            "kind": "agreement",
+            "needs_review": false,
+            "a": [
+              {
+                "path": "/0/2",
+                "line": "/0",
+                "text": "OK",
+                "bbox": [
+                  90.0,
+                  10.0,
+                  110.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "b": [
+              {
+                "path": "/0/2",
+                "line": "/0",
+                "text": "OK",
+                "bbox": [
+                  90.0,
+                  10.0,
+                  110.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ]
+          }
+        ],
+        "queue": [
+          "2c0a4d106c26522fbc2dc7b956b1f598e936a6739227133f6701dafe59bd540d",
+          "b83c8a3605086468722521defd6f39f33ba1e05a3a74bda90d3f755884ba3dd3"
+        ],
+        "evaluation": {
+          "unit": "annotated exact-text region",
+          "regions": 4,
+          "a_error_regions": [
+            "g2",
+            "g4"
+          ],
+          "b_error_regions": [
+            "g1",
+            "g2"
+          ],
+          "error_regions": [
+            "g1",
+            "g2",
+            "g4"
+          ],
+          "caught_error_regions": [
+            "g1",
+            "g4"
+          ],
+          "missed_error_regions": [
+            "g2"
+          ],
+          "denominator": 3,
+          "caught": 2,
+          "missed": 1,
+          "recall": 0.6666666666666666
+        },
+        "decisions": [
+          {
+            "group": "b83c8a3605086468722521defd6f39f33ba1e05a3a74bda90d3f755884ba3dd3",
+            "outcome": "accept_a",
+            "text": "100",
+            "a": [
+              {
+                "path": "/0/0",
+                "line": "/0",
+                "text": "100",
+                "bbox": [
+                  10.0,
+                  10.0,
+                  30.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "b": [
+              {
+                "path": "/0/0",
+                "line": "/0",
+                "text": "101",
+                "bbox": [
+                  10.0,
+                  10.0,
+                  30.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "frame": {
+              "id": "synthetic-page-1",
+              "page_number": 0,
+              "width": 300,
+              "height": 200
+            },
+            "comparison_id": "2649a6a82e3cf0fa718bdeb00376386a3e0205b1ce1c8ae0b2e5effc3176bcf7",
+            "a_source": "6675e858864b08942e7e1ef134f9d7961e9a99f1ecae4662a8da1f690017b719",
+            "b_source": "897722b838414ddc39202ad6d45873c550c52c5b543b6d05434c82e5aeb808a7"
+          },
+          {
+            "group": "2c0a4d106c26522fbc2dc7b956b1f598e936a6739227133f6701dafe59bd540d",
+            "outcome": "accept_b",
+            "text": "7",
+            "a": [
+              {
+                "path": "/0/3",
+                "line": "/0",
+                "text": "?",
+                "bbox": [
+                  130.0,
+                  10.0,
+                  150.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "b": [
+              {
+                "path": "/0/3",
+                "line": "/0",
+                "text": "7",
+                "bbox": [
+                  130.0,
+                  10.0,
+                  150.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "frame": {
+              "id": "synthetic-page-1",
+              "page_number": 0,
+              "width": 300,
+              "height": 200
+            },
+            "comparison_id": "2649a6a82e3cf0fa718bdeb00376386a3e0205b1ce1c8ae0b2e5effc3176bcf7",
+            "a_source": "6675e858864b08942e7e1ef134f9d7961e9a99f1ecae4662a8da1f690017b719",
+            "b_source": "897722b838414ddc39202ad6d45873c550c52c5b543b6d05434c82e5aeb808a7"
+          },
+          {
+            "group": "07e750515f75706a168117088dbd107cd57000d90e16f630702b0333dbb9655f",
+            "outcome": "correct",
+            "text": "80",
+            "a": [
+              {
+                "path": "/0/1",
+                "line": "/0",
+                "text": "B0",
+                "bbox": [
+                  50.0,
+                  10.0,
+                  70.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "b": [
+              {
+                "path": "/0/1",
+                "line": "/0",
+                "text": "B0",
+                "bbox": [
+                  50.0,
+                  10.0,
+                  70.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "frame": {
+              "id": "synthetic-page-1",
+              "page_number": 0,
+              "width": 300,
+              "height": 200
+            },
+            "comparison_id": "2649a6a82e3cf0fa718bdeb00376386a3e0205b1ce1c8ae0b2e5effc3176bcf7",
+            "a_source": "6675e858864b08942e7e1ef134f9d7961e9a99f1ecae4662a8da1f690017b719",
+            "b_source": "897722b838414ddc39202ad6d45873c550c52c5b543b6d05434c82e5aeb808a7"
+          }
+        ]
+      }
+    },
+    "same-sidecar-order-shifted-positions": {
+      "exit_code": 0,
+      "report": {
+        "status": "compared",
+        "complete": true,
+        "comparison_id": "d54c6aa471d99f98b53a778ae10d02bd2c1ecaf0e631bfd5b3013b586482721e",
+        "a_source": "2f1c64b794281cb8f28fee44adff172f8252e2af1c9e28ea1c32a345f2a886cf",
+        "b_source": "23cb7bff6dfb6fd1c2d5754140982a03fd694e24f5b50eccfd2504e2eefff3ed",
+        "frame": {
+          "id": "synthetic-page-1",
+          "page_number": 0,
+          "width": 300,
+          "height": 200
+        },
+        "groups": [
+          {
+            "id": "62b1882b898088417af8fc7c9eaccf0b747367d2050106e0787acab498efffd8",
+            "kind": "text",
+            "needs_review": true,
+            "a": [
+              {
+                "path": "/0/0",
+                "line": "/0",
+                "text": "alpha",
+                "bbox": [
+                  10.0,
+                  10.0,
+                  30.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "b": [
+              {
+                "path": "/0/1",
+                "line": "/0",
+                "text": "beta",
+                "bbox": [
+                  10.0,
+                  10.0,
+                  30.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ]
+          },
+          {
+            "id": "fec554cb1c19206e85ca4647b688ccc51f56668159182ba483a350abb91e7185",
+            "kind": "text",
+            "needs_review": true,
+            "a": [
+              {
+                "path": "/0/1",
+                "line": "/0",
+                "text": "beta",
+                "bbox": [
+                  100.0,
+                  10.0,
+                  120.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "b": [
+              {
+                "path": "/0/0",
+                "line": "/0",
+                "text": "alpha",
+                "bbox": [
+                  100.0,
+                  10.0,
+                  120.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ]
+          }
+        ],
+        "queue": [
+          "62b1882b898088417af8fc7c9eaccf0b747367d2050106e0787acab498efffd8",
+          "fec554cb1c19206e85ca4647b688ccc51f56668159182ba483a350abb91e7185"
+        ],
+        "evaluation": null,
+        "decisions": []
+      }
+    },
+    "equal-text-disjoint-positions": {
+      "exit_code": 0,
+      "report": {
+        "status": "compared",
+        "complete": true,
+        "comparison_id": "ccfb0e38e8768916860fbd288841edd30e643a63317622b97a43285733fd9d66",
+        "a_source": "0abaffc5a30c9a17f0413c40b3b66f7bcdf9d04a627f7a726f421f194391d055",
+        "b_source": "44ab0ff5e65f4340307dcb8df34f5f55a0020d24cba3b9aa5888cbafe35e7bab",
+        "frame": {
+          "id": "synthetic-page-1",
+          "page_number": 0,
+          "width": 300,
+          "height": 200
+        },
+        "groups": [
+          {
+            "id": "05bd9dc7ccede3f2107ea02a7330343234c00cdc2f7ea4911bb30d1ad3dea994",
+            "kind": "unmatched",
+            "needs_review": true,
+            "a": [
+              {
+                "path": "/0/0",
+                "line": "/0",
+                "text": "same",
+                "bbox": [
+                  10.0,
+                  10.0,
+                  30.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "b": []
+          },
+          {
+            "id": "6198effa48145a17bba39bc0afbc9f9afeecc3bb43ab1d796258b315316eecce",
+            "kind": "unmatched",
+            "needs_review": true,
+            "a": [],
+            "b": [
+              {
+                "path": "/0/0",
+                "line": "/0",
+                "text": "same",
+                "bbox": [
+                  100.0,
+                  10.0,
+                  120.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ]
+          }
+        ],
+        "queue": [
+          "05bd9dc7ccede3f2107ea02a7330343234c00cdc2f7ea4911bb30d1ad3dea994",
+          "6198effa48145a17bba39bc0afbc9f9afeecc3bb43ab1d796258b315316eecce"
+        ],
+        "evaluation": null,
+        "decisions": []
+      }
+    },
+    "split-word-retains-segmentation": {
+      "exit_code": 0,
+      "report": {
+        "status": "compared",
+        "complete": true,
+        "comparison_id": "61dcd3662346dc304e59b60e5eec1dafefcd7a066f7356951a7763c90ec17364",
+        "a_source": "9ef59f0f1426e89d1657a608b2d2dff5caaf81352b93e8ca4e0182fa156b90ff",
+        "b_source": "679ab40384200a2eda96c77c8dc1c0a5fecc85944a99721e2044f720adf0a8e2",
+        "frame": {
+          "id": "synthetic-page-1",
+          "page_number": 0,
+          "width": 300,
+          "height": 200
+        },
+        "groups": [
+          {
+            "id": "0de4e4fe69c12fe4b6b217df6e40b59e15909dd35dec894c7c067b24b5192e32",
+            "kind": "segmentation",
+            "needs_review": true,
+            "a": [
+              {
+                "path": "/0/0",
+                "line": "/0",
+                "text": "New York",
+                "bbox": [
+                  10.0,
+                  10.0,
+                  50.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "b": [
+              {
+                "path": "/0/0",
+                "line": "/0",
+                "text": "New",
+                "bbox": [
+                  10.0,
+                  10.0,
+                  30.0,
+                  20.0
+                ],
+                "confidence": null
+              },
+              {
+                "path": "/0/1",
+                "line": "/0",
+                "text": "York",
+                "bbox": [
+                  30.0,
+                  10.0,
+                  50.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ]
+          }
+        ],
+        "queue": [
+          "0de4e4fe69c12fe4b6b217df6e40b59e15909dd35dec894c7c067b24b5192e32"
+        ],
+        "evaluation": null,
+        "decisions": []
+      }
+    },
+    "many-to-many-ambiguity": {
+      "exit_code": 0,
+      "report": {
+        "status": "compared",
+        "complete": true,
+        "comparison_id": "79e434ba3cc524f6b731cdfb444a92fde4f2c112e831fa89bc3490484971249a",
+        "a_source": "faf705f1d0d667706e64e0f98f9c74fd52f6916d7b5e8cd5846c958eabc0d533",
+        "b_source": "88420dd908f7d0e85b0a78fa885abe63515aec5815e48edd2259dc1beb4a2b38",
+        "frame": {
+          "id": "synthetic-page-1",
+          "page_number": 0,
+          "width": 300,
+          "height": 200
+        },
+        "groups": [
+          {
+            "id": "320538f949928e10b98c91d1b700faab21332d087545dd8c4ce19c90cd60ee51",
+            "kind": "ambiguous",
+            "needs_review": true,
+            "a": [
+              {
+                "path": "/0/0",
+                "line": "/0",
+                "text": "a",
+                "bbox": [
+                  10.0,
+                  10.0,
+                  30.0,
+                  20.0
+                ],
+                "confidence": null
+              },
+              {
+                "path": "/0/1",
+                "line": "/0",
+                "text": "b",
+                "bbox": [
+                  30.0,
+                  10.0,
+                  50.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ],
+            "b": [
+              {
+                "path": "/0/0",
+                "line": "/0",
+                "text": "c",
+                "bbox": [
+                  10.0,
+                  10.0,
+                  40.0,
+                  20.0
+                ],
+                "confidence": null
+              },
+              {
+                "path": "/0/1",
+                "line": "/0",
+                "text": "d",
+                "bbox": [
+                  20.0,
+                  10.0,
+                  50.0,
+                  20.0
+                ],
+                "confidence": null
+              }
+            ]
+          }
+        ],
+        "queue": [
+          "320538f949928e10b98c91d1b700faab21332d087545dd8c4ce19c90cd60ee51"
+        ],
+        "evaluation": null,
+        "decisions": []
+      }
+    },
+    "empty-universe-has-undefined-error-recall": {
+      "exit_code": 0,
+      "report": {
+        "status": "compared",
+        "complete": true,
+        "comparison_id": "07b95dc552f57cf75913a30bd8f275e7e0e162b8ebdd7460569ed6de98184557",
+        "a_source": "cd364d4549067c97b972c7619f1475402f255f13ed7408b100fabb1d99c907be",
+        "b_source": "2f04d7e8656add1d4be2fdcc9c7267b48508206846d07fd2ea15b0c51ac56f4a",
+        "frame": {
+          "id": "synthetic-page-1",
+          "page_number": 0,
+          "width": 300,
+          "height": 200
+        },
+        "groups": [],
+        "queue": [],
+        "evaluation": {
+          "unit": "annotated exact-text region",
+          "regions": 0,
+          "a_error_regions": [],
+          "b_error_regions": [],
+          "error_regions": [],
+          "caught_error_regions": [],
+          "missed_error_regions": [],
+          "denominator": 0,
+          "caught": 0,
+          "missed": 0,
+          "recall": null
+        },
+        "decisions": []
+      }
+    },
+    "different-declared-frame": {
+      "exit_code": 2,
+      "report": {
+        "status": "invalid",
+        "complete": false,
+        "error": "observations must share the declared frame/page/canvas"
+      }
+    },
+    "stale-gold-source-binding": {
+      "exit_code": 2,
+      "report": {
+        "status": "invalid",
+        "complete": false,
+        "error": "gold/comparison source mismatch"
+      }
+    },
+    "word-overflow-does-not-certify-prefix": {
+      "exit_code": 2,
+      "report": {
+        "status": "invalid",
+        "complete": false,
+        "error": "word limit exceeded"
+      }
+    }
+  },
+  "negative_controls": [
+    {
+      "control": "text-only-pairing-ignores-spatial-alignment",
+      "exit_code": 1,
+      "test": "test_same_text_disjoint_positions_remain_unmatched",
+      "intended_assertion_failure": true,
+      "log": "F\n======================================================================\nFAIL: test_same_text_disjoint_positions_remain_unmatched (test_ocr_review.OcrReviewOracleTests.test_same_text_disjoint_positions_remain_unmatched)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/ocr-review-control-frqjavzd/tests/test_ocr_review.py\", line 180, in test_same_text_disjoint_positions_remain_unmatched\n    left = self.group(report, a=[\"/0/0\"], b=[])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/ocr-review-control-frqjavzd/tests/test_ocr_review.py\", line 87, in group\n    self.assertEqual(\nAssertionError: 0 != 1 : expected one spatial group for A=['/0/0'], B=[]\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "control": "queue-only-gold-denominator",
+      "exit_code": 1,
+      "test": "test_gold_counts_agreed_wrong_and_both_missing_regions",
+      "intended_assertion_failure": true,
+      "log": "F\n======================================================================\nFAIL: test_gold_counts_agreed_wrong_and_both_missing_regions (test_ocr_review.OcrReviewOracleTests.test_gold_counts_agreed_wrong_and_both_missing_regions)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/ocr-review-control-qya0qi0n/tests/test_ocr_review.py\", line 269, in test_gold_counts_agreed_wrong_and_both_missing_regions\n    self.assertEqual(set(metrics[\"error_regions\"]), {\"g1\", \"g2\", \"g4\"})\nAssertionError: Items in the second set but not the first:\n'g2'\n\n----------------------------------------------------------------------\nRan 1 test in 0.002s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "control": "ignore-explicit-correction-outcome",
+      "exit_code": 1,
+      "test": "test_decisions_preserve_sources_and_correct_agreement_errors",
+      "intended_assertion_failure": true,
+      "log": "F\n======================================================================\nFAIL: test_decisions_preserve_sources_and_correct_agreement_errors (test_ocr_review.OcrReviewOracleTests.test_decisions_preserve_sources_and_correct_agreement_errors)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/ocr-review-control-g6bajxl1/tests/test_ocr_review.py\", line 366, in test_decisions_preserve_sources_and_correct_agreement_errors\n    self.assertEqual([item[\"text\"] for item in receipts], [\"100\", \"7\", \"80\"])\nAssertionError: Lists differ: ['100', '7', 'B0'] != ['100', '7', '80']\n\nFirst differing element 2:\n'B0'\n'80'\n\n- ['100', '7', 'B0']\n?               ^\n\n+ ['100', '7', '80']\n?               ^\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.002s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "control": "certify-only-a-capped-prefix",
+      "exit_code": 1,
+      "test": "test_word_limit_rejects_overflow_instead_of_comparing_prefix",
+      "intended_assertion_failure": true,
+      "log": "F\n======================================================================\nFAIL: test_word_limit_rejects_overflow_instead_of_comparing_prefix (test_ocr_review.OcrReviewOracleTests.test_word_limit_rejects_overflow_instead_of_comparing_prefix)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/ocr-review-control-pb6oiyva/tests/test_ocr_review.py\", line 631, in test_word_limit_rejects_overflow_instead_of_comparing_prefix\n    with self.assertRaises(ValueError):\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+    }
+  ]
+}
