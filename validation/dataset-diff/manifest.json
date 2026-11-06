@@ -1,0 +1,124 @@
+{
+  "recorded_at": "2026-11-06T18:54:35.346700+00:00",
+  "source_commit": "8fa50a94f15d1168ac6a340a5d2f3d9edf13ea0b",
+  "command": "python examples/dataset_diff_validation.py --output .lab/dataset-diff/results.json",
+  "ci": [
+    {
+      "id": 42274490080,
+      "url": "https://github.com/jabrailkhalil/jax-reliability-notes/actions/runs/42274490080",
+      "head": "8fa50a94f15d1168ac6a340a5d2f3d9edf13ea0b",
+      "name": "Check local dataset snapshots",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 128087185588,
+          "name": "dataset-diff (ubuntu-latest, 3.14)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128087186191,
+          "name": "dataset-diff (ubuntu-latest, 3.11)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128087186337,
+          "name": "dataset-diff (windows-latest, 3.12.10)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 42274489858,
+      "url": "https://github.com/jabrailkhalil/jax-reliability-notes/actions/runs/42274489858",
+      "head": "8fa50a94f15d1168ac6a340a5d2f3d9edf13ea0b",
+      "name": "Reproduce ADK context boundaries",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 128087184606,
+          "name": "before-and-after (windows-latest)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128087185240,
+          "name": "before-and-after (ubuntu-latest, --race)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 42274489913,
+      "url": "https://github.com/jabrailkhalil/jax-reliability-notes/actions/runs/42274489913",
+      "head": "8fa50a94f15d1168ac6a340a5d2f3d9edf13ea0b",
+      "name": "Reproduce JAX cases",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 128087185089,
+          "name": "before-and-after",
+          "conclusion": "success"
+        },
+        {
+          "id": 128087185478,
+          "name": "etils-import-scopes (macos-latest, 3.12)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128087185570,
+          "name": "generalized-eigh",
+          "conclusion": "success"
+        },
+        {
+          "id": 128087185694,
+          "name": "grain-shutdown (windows-latest, 3.13)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128087185799,
+          "name": "clipping-meta-gradients",
+          "conclusion": "success"
+        },
+        {
+          "id": 128087185809,
+          "name": "etils-import-scopes (windows-latest, 3.13)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128087185812,
+          "name": "grain-shutdown (ubuntu-latest, 3.14)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128087185818,
+          "name": "etils-import-scopes (ubuntu-latest, 3.11)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128087185833,
+          "name": "grain-shutdown (ubuntu-latest, 3.11)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128087185860,
+          "name": "grain-shutdown (macos-latest, 3.12)",
+          "conclusion": "success"
+        },
+        {
+          "id": 128087185882,
+          "name": "etils-import-scopes (ubuntu-latest, 3.14)",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "file_sha256": {
+    "dataset-diff-ubuntu-latest-3.11.json": "ffad100e675721afa18d977101fdfdca714e5e95d9d011045a4a3f9a1ba058c2",
+    "dataset-diff-ubuntu-latest-3.14.json": "9c712c7d186550da0f3d9eaca48e640328870e40fcaf6a9be96670d62a6025db",
+    "dataset-diff-windows-latest-3.12.10.json": "516a0beb81c88092f97173f26484fd3fc138ffdeec0f8ab5fecedc30dc15455f"
+  },
+  "limitations": [
+    "Offline synthetic data only; no Hub revisions loaded.",
+    "Local native dependencies were not installed; runtime validation executed in GitHub Actions.",
+    "Static source check used mypy with dependency-import traversal skipped."
+  ]
+}

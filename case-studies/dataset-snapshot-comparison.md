@@ -66,6 +66,16 @@ The runner records exact dependency versions, test outcomes and CLI reports. Its
 
 The [CI workflow](../.github/workflows/dataset-diff.yml) runs Linux Python 3.11/3.14 and Windows Python 3.12.10 with Hub access disabled. This is an independent educational example using synthetic data. It does not test remote Hub revision loading, authentication, concurrent file writers, large-dataset performance, model behavior, or downstream adoption. I have not delivered it as a workshop.
 
+I ran the following matrix on 6 November 2026 at source `8fa50a94f15d1168ac6a340a5d2f3d9edf13ea0b`:
+
+| Environment | Independent tests | Successful subtests | CLI scenarios | Broken controls caught |
+| --- | --- | --- | --- | --- |
+| Linux, Python 3.11.18 | 17 | 196 | 7 | 5 |
+| Linux, Python 3.14.10 | 17 | 196 | 7 | 5 |
+| Windows, Python 3.12.10 | 17 | 196 | 7 | 5 |
+
+There were no skips, errors or failures in the pristine test suite. Every broken control failed its intended test assertion rather than an import/setup error. Ruff and the local-source mypy check also passed; that mypy invocation skips traversal of dependency internals. The [measured JSON reports and exact CI manifest](../validation/dataset-diff/manifest.json) retain the commands, package versions, expected-failure logs and full comparison reports. All 16 jobs for the repository passed at that source, including the existing JAX and ADK labs.
+
 ## Source references
 
 I used the released [Datasets 5.1.0 source](https://github.com/huggingface/datasets/tree/efe6ea4f88260b1a5066f28a9c90d82365a29f42). Its [ClassLabel implementation](https://github.com/huggingface/datasets/blob/efe6ea4f88260b1a5066f28a9c90d82365a29f42/src/datasets/features/features.py) defines the encoded-ID/name mapping and rejects `int2str(-1)`. The [Dataset construction code](https://github.com/huggingface/datasets/blob/efe6ea4f88260b1a5066f28a9c90d82365a29f42/src/datasets/arrow_dataset.py) is the reason I validate raw records and retain declarations separately before construction.
