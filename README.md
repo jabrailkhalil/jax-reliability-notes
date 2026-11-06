@@ -91,6 +91,10 @@ The [English article](articles/generalized-eigh-lda.md) and 45-minute hands-on w
 
 The [ADK Go context lab](case-studies/adk-context-boundaries.md) follows a user request through two sequential agents with local recording models. It compares the exact parent and accepted source of [ADK Go #1895](https://github.com/google/adk-go/pull/1895), including metadata-only events, retained payload signatures and unchanged stored history. One Python entry point runs the six scenarios and their negative controls without API keys. The material is independent of the ADK project and has not been delivered as a workshop.
 
+## Dataset comparison and label meaning
+
+In [this offline dataset-comparison lab](case-studies/dataset-snapshot-comparison.md), I compare explicit keyed rows, `ClassLabel` meanings, features and configuration separately. Identical data files can change label meaning; reordered shards can retain the same keyed content. The small synthetic fixtures, independent oracles and deliberately broken controls use the public Hugging Face Datasets APIs. This first slice has no Hub loader or model-quality benchmark.
+
 ## License
 
 The educational material and examples are licensed under Apache-2.0. The patch excerpts modify JAX, which is also licensed under Apache-2.0; their upstream context remains copyright The JAX Authors. The clipping lab adapts Optax expressions, copyright DeepMind Technologies Limited, also under Apache-2.0. The shutdown lab loads pinned Grain source, copyright Google LLC, under the same license. The import-scope lab uses pinned etils, copyright The etils Authors, also under Apache-2.0. The ADK lab adapts the author-validation probe for Google ADK Go, copyright Google LLC, under Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).

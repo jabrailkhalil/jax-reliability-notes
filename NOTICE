@@ -31,5 +31,10 @@ https://github.com/jabrailkhalil/adk-go/blob/6dd62f62abb056a8d83f4c2965bbd65e1b3
 Copyright 2026 Google LLC.
 Google ADK Go is licensed under the Apache License, Version 2.0.
 
+The dataset comparison lab uses the public APIs of Hugging Face Datasets:
+https://github.com/huggingface/datasets
+Hugging Face Datasets is licensed under Apache-2.0. No upstream source is
+vendored in the dataset lab.
+
 This repository is an independent educational contribution and is not an
-official JAX, Optax, Grain, etils, or Google ADK project publication.
+official JAX, Optax, Grain, etils, Google ADK, or Hugging Face publication.

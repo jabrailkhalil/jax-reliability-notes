@@ -1,0 +1,52 @@
+name: Check local dataset snapshots
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  dataset-diff:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.11'
+          - os: ubuntu-latest
+            python: '3.14'
+          - os: windows-latest
+            python: '3.12.10'
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    env:
+      HF_HUB_OFFLINE: '1'
+      HF_DATASETS_OFFLINE: '1'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      HF_HUB_DISABLE_IMPLICIT_TOKEN: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements-dataset-diff.txt
+      - name: Check style
+        run: |
+          python -m ruff check examples/dataset_diff.py examples/dataset_diff_validation.py tests/test_dataset_diff.py
+          python -m ruff format --check examples/dataset_diff.py examples/dataset_diff_validation.py tests/test_dataset_diff.py
+          python -m mypy --ignore-missing-imports --follow-imports=skip --check-untyped-defs examples/dataset_diff.py
+      - name: Run independent oracles and negative controls
+        run: python examples/dataset_diff_validation.py --output .lab/dataset-diff/results.json
+      - name: Save exact results
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: dataset-diff-${{ matrix.os }}-${{ matrix.python }}
+          path: .lab/dataset-diff/results.json
+          if-no-files-found: error

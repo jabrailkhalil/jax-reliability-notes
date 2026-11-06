@@ -1,0 +1,1 @@
+{"id":{"_type":"Value","dtype":"string"},"text":{"_type":"Value","dtype":"string"},"label":{"_type":"ClassLabel","names":["positive","negative"]}}
